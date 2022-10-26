@@ -1,0 +1,18 @@
+.card__small {
+    width: 530px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px #f5f5f5;
+    background-color: red;
+}
+
+.card__medium {
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px #f5f5f5;
+    background-color: red;
+}
+
+.card__large {
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px #f5f5f5;
+    background-color: red;
+}
