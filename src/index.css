@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Yeseva+One&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,242 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*---------- Content Control  ----------*/
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/*---------- Margin & Padding  ----------*/
+.m-auto {
+  margin: auto;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.ml-40 {
+  margin-left: 40px;
+}
+
+.ml-50 {
+  margin-left: 50px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.mr-40 {
+  margin-right: 40px;
+}
+
+.mr-50 {
+  margin-right: 50px;
+}
+
+/*---------- Text ---------- */
+.h1 {
+  font-family: Kanit;
+  font-size: 100px;
+}
+
+.h2 {
+  font-family: Kanit;
+  font-size: 50px;
+}
+
+.h3 {
+  font-family: Kanit;
+  font-size: 40px;
+}
+
+.h4 {
+  font-family: Kanit;
+  font-size: 30px;
+}
+
+.h5 {
+  font-family: Kanit;
+  font-size: 28px;
+}
+
+.p1 {
+  font-family: Kanit;
+  font-size: 18px;
+}
+
+.label {
+  font-family: Kanit;
+  font-size: 16px;
+}
+
+/*---------- Font Weights ----------*/
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+/*---------- Colors ----------*/
+.red {
+  color: #FF5151;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+.gray {
+  color: #F3F3F5;
+}
+
+/*--------- Buttons ---------- */
+.primary-button {
+  color: white;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 14px;
+  min-width: 250px;
+  padding: 8px 65px;
+  text-align: center;
+  background-color: #309393;
+  border-radius: 10px;
+  border: 1px solid #309393;
+}
+
+.secondary-button {
+  color: black;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 14px;
+  min-width: 250px;
+  padding: 8px 65px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #309393;
+}
+
+.primary-button:hover {
+  cursor: pointer;
+  background-color: #226c6c;
+  border: 1px solid #226c6c;
+}
+
+.secondary-button:hover {
+  cursor: pointer;
+  background-color: #309393;
+}
+
+/*---------- Labels & Inputs ----------*/
+.input {
+  background-color: white;
+  border: 1px solid #309393;
+  border-radius: 6px;
+  padding: 5px 20px 5px 0;
 }
