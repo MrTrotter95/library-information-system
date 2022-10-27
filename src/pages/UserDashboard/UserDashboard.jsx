@@ -27,7 +27,7 @@ const UserDashboard = () => {
                                 <p className="h4 mt-0 mb-0">Books currently checked out.</p>
                             </div>
                             <div className=" flex last-item align-center">
-                                <button className="primary-button">View Books</button>
+                                <button className="primary-button__large">View Books</button>
                             </div>
                             
                         </div>
@@ -37,13 +37,17 @@ const UserDashboard = () => {
                 <div>
 
                 <CardLarge>
-                    <div>
-                        <h1>2</h1>
-                        <p>Books currently overdue.</p>
-                        <button>Hide</button>
+                    <div className="flex">
+                        <div className="flex align-center">
+                            <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">2</h1>
+                            <p className="h4 mt-0 mb-0">Books currently overdue.</p>
+                        </div>
+                        <div className=" flex last-item align-center">
+                            <button className="primary-button__large">Hide</button>
+                        </div>
                     </div>
-                    <table>
-                        <thead>
+                    <table className="table">
+                        <thead className="t-head">
                             <tr>
                                 <th>Book Title</th>
                                 <th>Date Checked Out</th>
@@ -52,13 +56,13 @@ const UserDashboard = () => {
                                 <th>Return Book</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Lord of the rings</td>
-                                <td>18/09/22</td>
-                                <td>18/10/22</td>
-                                <td>2 days</td>
-                                <td><button>Return</button></td>
+                        <tbody className="t-body">
+                            <tr className="t-row">
+                                <td className="t-data__book">Lord of the rings</td>
+                                <td className="t-data">18/09/22</td>
+                                <td className="t-data">18/10/22</td>
+                                <td className="t-data">2 days</td>
+                                <td className="flex justify-center"><button className="table-button">Return</button></td>
                             </tr>
                         </tbody>
                     </table>

@@ -263,6 +263,19 @@ code {
   border: 1px solid #309393;
 }
 
+.primary-button__large {
+  color: white;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 20px;
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  background-color: #309393;
+  border-radius: 10px;
+  border: 1px solid #309393;
+}
+
 .secondary-button {
   color: black;
   font-weight: 400;
@@ -276,7 +289,7 @@ code {
   border: 1px solid #309393;
 }
 
-.primary-button:hover, .primary-button__full-width:hover {
+.primary-button:hover, .primary-button__full-width:hover, .primary-button__large:hover {
   cursor: pointer;
   background-color: #226c6c;
   border: 1px solid #226c6c;
@@ -317,4 +330,61 @@ code {
 .input:focus {
   outline: none;
   border-color: #68dddd;
+}
+
+
+/*---------- Tables ----------*/
+.table {
+  width: 1180px;
+  border-spacing: 20px;
+}
+
+.t-head {
+  text-align: center;
+  color: #FF5151;
+}
+
+.t-row {
+
+
+}
+
+.t-data {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #C0C0C0;
+  border-radius: 6px;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 18px;
+  width: 150px;
+}
+
+.t-data__book {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #C0C0C0;
+  border-radius: 6px;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 18px;
+  width: 350px;
+}
+
+.table-button {
+  color: white;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 18px;
+  width: 150px;
+  padding: 8px 0;
+  background-color: #309393;
+  border-radius: 10px;
+  border: 1px solid #309393;
+}
+
+.table-button:hover {
+  cursor: pointer;
+  background-color: #226c6c;
+  border: 1px solid #226c6c;
 }
