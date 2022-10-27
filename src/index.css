@@ -15,6 +15,11 @@ code {
 }
 
 /*---------- Content Control  ----------*/
+.container {
+  max-width: 1250px;
+  margin: auto;
+}
+
 .flex {
   display: flex;
 }
@@ -44,6 +49,10 @@ code {
   margin: auto;
 }
 
+.mt-0 {
+  margin-top: 0px;
+}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -66,6 +75,10 @@ code {
 
 .mt-50 {
   margin-top: 50px;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
 }
 
 .mb-10 {
@@ -141,9 +154,14 @@ code {
 }
 
 /*---------- Text ---------- */
+.hr {
+  width: 1250px;
+}
+
 .h1 {
   font-family: Kanit;
   font-size: 100px;
+  line-height: ;
 }
 
 .h2 {
@@ -174,6 +192,14 @@ code {
 .label {
   font-family: Kanit;
   font-size: 16px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*---------- Font Weights ----------*/
@@ -220,6 +246,19 @@ code {
   border: 1px solid #309393;
 }
 
+.primary-button__full-width {
+  color: white;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 65px;
+  text-align: center;
+  background-color: #309393;
+  border-radius: 10px;
+  border: 1px solid #309393;
+}
+
 .secondary-button {
   color: black;
   font-weight: 400;
@@ -233,7 +272,7 @@ code {
   border: 1px solid #309393;
 }
 
-.primary-button:hover {
+.primary-button:hover, .primary-button__full-width:hover {
   cursor: pointer;
   background-color: #226c6c;
   border: 1px solid #226c6c;
@@ -249,5 +288,13 @@ code {
   background-color: white;
   border: 1px solid #309393;
   border-radius: 6px;
-  padding: 5px 20px 5px 0;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #5C5C5C;
+  font-family: kanit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #68dddd;
 }
