@@ -110,6 +110,10 @@ code {
   margin-bottom: 50px;
 }
 
+.mb-75 {
+  margin-bottom: 75px;
+}
+
 .ml-10 {
   margin-left: 10px;
 }
@@ -204,6 +208,10 @@ code {
 
 .text-center {
   text-align: center;
+}
+
+.text-end {
+  text-align: end;
 }
 
 /*---------- Font Weights ----------*/
@@ -387,4 +395,11 @@ code {
   cursor: pointer;
   background-color: #226c6c;
   border: 1px solid #226c6c;
+}
+
+/*---------- Popup ----------*/
+.popup-bg {
+  background-color: rgba(243, 243, 245, 0.50);
+  height: 100vh;
+  position: relative;
 }

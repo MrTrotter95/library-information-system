@@ -1,11 +1,10 @@
 import './App.css';
-import Login from './pages/Login/Login';
-import Dashboard from './pages/UserDashboard/UserDashboard';
+import ReturnSuccess from './pages/UserDashboard/ReturnSuccess';
 
 function App() {
   return (
     <div className="App">
-    <Dashboard/>
+      <ReturnSuccess/>
     </div>
   );
 }

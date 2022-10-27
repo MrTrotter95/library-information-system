@@ -21,3 +21,17 @@
     box-shadow: 4px 4px 8px rgba(95, 95, 95, 0.25);
     background-color: rgb(243, 243, 245);
 }
+
+.card__popup {
+    width: 800px;
+    height: 400px;
+    padding: 40px 45px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
