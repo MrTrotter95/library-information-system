@@ -17,7 +17,7 @@ code {
 /*---------- Content Control  ----------*/
 .container {
   max-width: 1250px;
-  margin: auto;
+  margin: 65px auto 250px auto;
 }
 
 .flex {
@@ -43,6 +43,11 @@ code {
 .justify-center {
   justify-content: center;
 }
+
+.last-item {
+  margin-left: auto;
+}
+
 
 /*---------- Margin & Padding  ----------*/
 .m-auto {
@@ -161,7 +166,6 @@ code {
 .h1 {
   font-family: Kanit;
   font-size: 100px;
-  line-height: ;
 }
 
 .h2 {
