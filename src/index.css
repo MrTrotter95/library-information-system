@@ -283,6 +283,22 @@ code {
   background-color: #309393;
 }
 
+.cancel-button {
+  color: 5C5C5C;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 14px;
+  min-width: 250px;
+  padding: 8px 65px;
+  text-align: center;
+  border: 0;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  color: #309393;
+}
+
 /*---------- Labels & Inputs ----------*/
 .input {
   background-color: white;
