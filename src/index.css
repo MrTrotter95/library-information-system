@@ -138,6 +138,10 @@ code {
   margin-left: 50px;
 }
 
+.ml-200 {
+  margin-left: 200px;
+}
+
 .mr-10 {
   margin-right: 10px;
 }
@@ -160,6 +164,10 @@ code {
 
 .mr-50 {
   margin-right: 50px;
+}
+
+.mr-200 {
+  margin-right: 200px;
 }
 
 /*---------- Text ---------- */
@@ -297,13 +305,27 @@ code {
   border: 1px solid #309393;
 }
 
+.secondary-button__full-width {
+  color: black;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 14px;
+  min-width: 250px;
+  width: 100%;
+  padding: 8px 65px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #309393;
+}
+
 .primary-button:hover, .primary-button__full-width:hover, .primary-button__large:hover {
   cursor: pointer;
   background-color: #226c6c;
   border: 1px solid #226c6c;
 }
 
-.secondary-button:hover {
+.secondary-button:hover, .secondary-button__full-width:hover {
   cursor: pointer;
   background-color: #309393;
 }
@@ -324,6 +346,65 @@ code {
   color: #309393;
 }
 
+.profile-button {
+  color: 5C5C5C;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 24px;
+  min-width: 250px;
+  padding: 8px 65px;
+  text-align: center;
+  border: 0;
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+.profile-button:hover {
+  cursor: pointer;
+  color: #FFDB3D;
+}
+
+.profile-nav1 {
+  position: absolute;
+  top: 330px;
+  left: 80px;
+  z-index: 3;
+}
+
+.profile-nav1_bg {
+  position: absolute;
+  top: 220px;
+  right: 0px;
+  z-index: 2;
+}
+
+.profile-nav2 {
+  position: absolute;
+  top: 460px;
+  left: 80px;
+  z-index: 3;
+}
+
+.profile-nav3 {
+  position: absolute;
+  top: 590px;
+  left: 80px;
+  z-index: 3;
+}
+
+.profile_selected {
+  color: 5C5C5C;
+  font-weight: 400;
+  font-family: Kanit;
+  font-size: 24px;
+  min-width: 250px;
+  padding: 8px 65px;
+  text-align: center;
+  border: 0;
+  background-color: transparent;
+  color: #000;
+}
+
 /*---------- Labels & Inputs ----------*/
 .input {
   background-color: white;
@@ -340,6 +421,9 @@ code {
   border-color: #68dddd;
 }
 
+.textarea_desc {
+  resize: none;
+}
 
 /*---------- Tables ----------*/
 .table {
@@ -402,4 +486,25 @@ code {
   background-color: rgba(243, 243, 245, 0.50);
   height: 100vh;
   position: relative;
+}
+
+/*---------- Images  ----------*/
+.profile-parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.profile-bg {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.profile-img {
+  position: absolute;
+  top: 60px;
+  left: 112px;
+  z-index: 1;
 }

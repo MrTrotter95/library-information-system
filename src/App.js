@@ -1,5 +1,5 @@
 import './App.css';
-import ReturnSuccess from './pages/UserDashboard/ReturnSuccess';
+import ReturnSuccess from './pages/Profile/Profile';
 
 function App() {
   return (
