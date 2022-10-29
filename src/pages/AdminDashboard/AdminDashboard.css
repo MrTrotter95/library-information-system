@@ -1,0 +1,34 @@
+.admin-btn {
+    width: 600px;
+    height: 150px;
+    color: white;
+    font-size: 40px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 4px 4px 8px rgba(95, 95, 95, 0.25);
+}
+
+.admin__btn1 {
+    background-image: linear-gradient(to bottom, #FF5151, #FF9E75)
+}
+
+.admin__btn2 {
+    background-image: linear-gradient(to bottom, #309393, #0162D3)
+}
+
+.admin__btn3 {
+    background-image: linear-gradient(to bottom, #30937B, #00CA99)
+}
+
+.admin__btn4 {
+    background-image: linear-gradient(to bottom, #9E15C0, #9B4DFF)
+}
+
+.admin__btn5 {
+    background-image: linear-gradient(to bottom, #F3D449, #FF9EAE)
+}
+
+.admin-btn:hover {
+    cursor: pointer;
+    scale: 1.015;
+}

@@ -1,10 +1,12 @@
 import './App.css';
-import ReturnSuccess from './pages/UserDashboard/ReturnSuccess';
+import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
-      <ReturnSuccess/>
+      <AdminDashboard/>
+      <Footer/>
     </div>
   );
 }

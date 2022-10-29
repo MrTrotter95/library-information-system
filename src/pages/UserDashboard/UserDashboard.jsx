@@ -7,7 +7,7 @@ const UserDashboard = () => {
     return (
         <div className="container">
             <h1 className="h2 red fw-600 mb-0">Dashboard</h1>
-            <hr/>
+            <hr className="hr"/>
             <div>
                 <div className="flex flex-row mt-50 mb-40">
                     <div>
@@ -27,9 +27,8 @@ const UserDashboard = () => {
                                 <p className="h4 mt-0 mb-0">Books currently checked out.</p>
                             </div>
                             <div className=" flex last-item align-center">
-                                <button className="primary-button__large">View Books</button>
+                                <button className="primary-button large">View Books</button>
                             </div>
-                            
                         </div>
                     </CardLarge>
                 </div>
@@ -43,7 +42,7 @@ const UserDashboard = () => {
                             <p className="h4 mt-0 mb-0">Books currently overdue.</p>
                         </div>
                         <div className=" flex last-item align-center">
-                            <button className="primary-button__large">Hide</button>
+                            <button className="primary-button large">Hide</button>
                         </div>
                     </div>
                     <table className="table">

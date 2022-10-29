@@ -24,6 +24,10 @@ code {
   display: flex;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -44,10 +48,13 @@ code {
   justify-content: center;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .last-item {
   margin-left: auto;
 }
-
 
 /*---------- Margin & Padding  ----------*/
 .m-auto {
@@ -112,6 +119,10 @@ code {
 
 .mb-75 {
   margin-bottom: 75px;
+}
+
+.mb-250 {
+  margin-bottom: 250px;
 }
 
 .ml-10 {
@@ -197,6 +208,11 @@ code {
   font-size: 18px;
 }
 
+.p2 {
+  font-family: Kanit;
+  font-size: 16px;
+}
+
 .label {
   font-family: Kanit;
   font-size: 18px;
@@ -212,6 +228,11 @@ code {
 
 .text-end {
   text-align: end;
+}
+
+.logo {
+  font-family: Yeseva One;
+  font-size: 40px;
 }
 
 /*---------- Font Weights ----------*/
@@ -249,35 +270,6 @@ code {
   color: white;
   font-weight: 400;
   font-family: Kanit;
-  font-size: 14px;
-  min-width: 250px;
-  padding: 8px 65px;
-  text-align: center;
-  background-color: #309393;
-  border-radius: 10px;
-  border: 1px solid #309393;
-}
-
-.primary-button__full-width {
-  color: white;
-  font-weight: 400;
-  font-family: Kanit;
-  font-size: 14px;
-  width: 100%;
-  padding: 8px 65px;
-  text-align: center;
-  background-color: #309393;
-  border-radius: 10px;
-  border: 1px solid #309393;
-}
-
-.primary-button__large {
-  color: white;
-  font-weight: 400;
-  font-family: Kanit;
-  font-size: 20px;
-  width: 200px;
-  padding: 15px 0;
   text-align: center;
   background-color: #309393;
   border-radius: 10px;
@@ -288,16 +280,30 @@ code {
   color: black;
   font-weight: 400;
   font-family: Kanit;
-  font-size: 14px;
-  min-width: 250px;
-  padding: 8px 65px;
   text-align: center;
   background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid #309393;
 }
 
-.primary-button:hover, .primary-button__full-width:hover, .primary-button__large:hover {
+.small {
+  height: 40px;
+  width: 150px;
+}
+
+.large {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.full-width {
+  height: 40px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.primary-button:hover {
   cursor: pointer;
   background-color: #226c6c;
   border: 1px solid #226c6c;
@@ -324,6 +330,54 @@ code {
   color: #309393;
 }
 
+.pagination-button__prev {
+  height: 40px;
+  width: 85px;
+  background-color: white;
+  border: 1px solid #FF5151;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  color: #FF5151;
+  font-family: kanit;
+  font-size: 14px;
+}
+
+.pagination-button__next {
+  height: 40px;
+  width: 85px;
+  background-color: white;
+  border: 1px solid #FF5151;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #FF5151;
+  font-family: kanit;
+  font-size: 14px;
+}
+
+.pagination-button {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border: 1px solid #FF5151;
+  color: #FF5151;
+  font-family: kanit;
+  font-size: 14px;
+}
+
+.pagination-button__prev:hover, .pagination-button__next:hover, .pagination-button:hover {
+  background-color: #FF5151;
+  color: white;
+}
+
+.bin-button {
+  background-color: rgb(243, 243, 245);
+  border: none;
+}
+
+.bin-button:hover {
+  cursor: pointer;
+}
+
 /*---------- Labels & Inputs ----------*/
 .input {
   background-color: white;
@@ -338,6 +392,37 @@ code {
 .input:focus {
   outline: none;
   border-color: #68dddd;
+}
+
+.search-bar {
+  width: 360px;
+  padding: 10px 0 10px 40px;
+  border: 1px solid #FF5151;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  font-family: kanit;
+  font-size: 16px;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #c13b3b;
+
+}
+
+.search-button {
+  height: 46px;
+  width: 80px;
+  background-color: #FF5151;
+  border: 1px solid #FF5151;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  background-color: #c13b3b;
+  border-color: #c13b3b;
 }
 
 
