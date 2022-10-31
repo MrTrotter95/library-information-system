@@ -1,8 +1,20 @@
 import React from "react";
 import AdminBookItem from "./AdminBookItem";
 import arrow from '../../assets/images/arrow.png';
+import { useQuery } from '@tanstack/react-query';
+import axios from "axios";
 
 const AdminCatalogue = () => {
+    const { isLoading, error, data } = useQuery(['adminViewBooks'], () =>
+    axios.get('http://localhost:3001/books').then(res =>
+      res.data
+    )
+    )
+
+    if (isLoading) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
+
     return (
         <div className="container">
             <div className="flex align-center">
@@ -14,10 +26,7 @@ const AdminCatalogue = () => {
             </div>
             <hr className="hr"/>
             <div className="flex wrap justify-center space-between mb-75">
-                <AdminBookItem/>
-                <AdminBookItem/>
-                <AdminBookItem/>
-                <AdminBookItem/>
+                {data.map( book => <AdminBookItem book={book}/> )}
             </div>
 
             <div className="flex justify-center align-center mb-50">

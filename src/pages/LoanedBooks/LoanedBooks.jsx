@@ -1,7 +1,20 @@
 import React from "react";
 import CardLarge from '../../components/Cards/CardLarge';
+import LoanedItem from "./LoanedItem";
+import { useQuery } from '@tanstack/react-query';
+import axios from "axios";
 
 const LoanedBooks = () => {
+    const { isLoading, error, data } = useQuery(['viewLoanedBooks'], () =>
+    axios.get('http://localhost:3001/loanedBooks?_expand=user&_expand=book').then(res =>
+      res.data
+    )
+    )
+
+    if (isLoading) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
+
     return (
         <div className="container">
             <h1 className="h1 red fw-600 mb-0">Loaned Books</h1>
@@ -25,18 +38,7 @@ const LoanedBooks = () => {
                             </tr>
                         </thead>
                         <tbody className="t-body">
-                            <tr className="t-row">
-                                <td className="t-data__book">Lord of the rings</td>
-                                <td className="t-data">Smith, John</td>
-                                <td className="t-data">18/10/22</td>
-                                <td className="t-data">18/09/22</td>
-                            </tr>
-                            <tr className="t-row">
-                                <td className="t-data__book">Lord of the rings</td>
-                                <td className="t-data">Smith, John</td>
-                                <td className="t-data">18/10/22</td>
-                                <td className="t-data">18/09/22</td>
-                            </tr>
+                            {data.map( book => <LoanedItem book={book}/> )}
                         </tbody>
                     </table>
                 </CardLarge>

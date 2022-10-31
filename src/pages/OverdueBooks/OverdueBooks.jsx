@@ -1,7 +1,20 @@
 import React from "react";
 import CardLarge from '../../components/Cards/CardLarge';
+import OverdueItem from "./OverdueItem";
+import { useQuery } from '@tanstack/react-query';
+import axios from "axios";
 
 const OverdueBooks = () => {
+    const { isLoading, error, data } = useQuery(['viewOverdueBooks'], () =>
+    axios.get('http://localhost:3001/loanedBooks?_expand=user&_expand=book').then(res =>
+      res.data
+    )
+    )
+
+    if (isLoading) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
+
     return (
         <div className="container">
             <h1 className="h1 red fw-600 mb-0">Overdue Books</h1>
@@ -19,6 +32,7 @@ const OverdueBooks = () => {
                         <thead className="t-head">
                             <tr>
                                 <th>Book Title</th>
+                                <th>Member</th>
                                 <th>Date Checked Out</th>
                                 <th>Due Date</th>
                                 <th>Overdue By</th>
@@ -26,13 +40,7 @@ const OverdueBooks = () => {
                             </tr>
                         </thead>
                         <tbody className="t-body">
-                            <tr className="t-row">
-                                <td className="t-data__book">Lord of the rings</td>
-                                <td className="t-data">18/09/22</td>
-                                <td className="t-data">18/10/22</td>
-                                <td className="t-data">2 days</td>
-                                <td className="flex justify-center"><button className="table-button">Contact</button></td>
-                            </tr>
+                            {data.map( book => <OverdueItem book={book}/> )}
                         </tbody>
                     </table>
                 </CardLarge>

@@ -1,9 +1,20 @@
 import React from "react";
-import './Catalogue.css';
 import BookItem from "./BookItem";
 import arrow from '../../assets/images/arrow.png';
+import { useQuery } from '@tanstack/react-query';
+import axios from "axios";
 
 const Catalogue = () => {
+    const { isLoading, error, data } = useQuery(['books'], () =>
+    axios.get('http://localhost:3001/books').then(res =>
+      res.data
+    )
+    )
+
+    if (isLoading) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
+
     return (
         <div className="container">
             <div className="flex align-center">
@@ -15,10 +26,7 @@ const Catalogue = () => {
             </div>
             <hr className="hr"/>
             <div className="flex wrap justify-center space-between mb-75">
-                <BookItem/>
-                <BookItem/>
-                <BookItem/>
-                <BookItem/>
+                {data.map( book => <BookItem book={book}/> )}
             </div>
 
             <div className="flex justify-center align-center mb-50">

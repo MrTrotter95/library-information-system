@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import './AdminDashboard.css';
 import userImage from '../../assets/images/userImage.png';
@@ -20,11 +21,21 @@ const AdminDashboard = () => {
             </div>
 
             <div className="flex wrap justify-center space-between mb-250">
+            <Link to='/AddBook'>
                 <button className="admin-btn admin__btn1 mb-40">Add New Book</button>
+            </Link>
+            <Link to='/AdminCatalogue'>
                 <button className="admin-btn admin__btn2 mb-40">View Existing Books</button>
+            </Link>
+            <Link to='/LoanedBooks'>
                 <button className="admin-btn admin__btn3 mb-40">View Checked Out Books</button>
+            </Link>
+            <Link to='/OverdueBooks'>
                 <button className="admin-btn admin__btn4 mb-40">View Overdue Books</button>
+            </Link>
+            <Link to='/UserProfiles'>
                 <button className="admin-btn admin__btn5 mb-40">View & Edit Users</button>
+            </Link> 
             </div>
         </div>
     )
