@@ -15,6 +15,19 @@ const OverdueBooks = () => {
 
     if (error) return 'An error has occurred: ' + error.message
 
+    //getting todays date
+    const date = new Date();
+    let day = date.getDate().toString();
+    let m = date.getMonth() + 1;
+    let month = m.toString();
+    let year = date.getFullYear().toString();
+
+    //contacting the date above to match the date format in the database
+    let currentDate = year.concat("-", month, "-", day);
+
+    const bookOverdue = data.filter( item => !item.returnedDate);
+    const overdueItems = bookOverdue.filter (item => new Date(item.dueDate) <  new Date(currentDate));
+
     return (
         <div className="container">
             <h1 className="h1 red fw-600 mb-0">Overdue Books</h1>
@@ -23,7 +36,7 @@ const OverdueBooks = () => {
                 <CardLarge>
                     <div className="flex mb-75">
                         <div className="flex align-center">
-                            <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">2</h1>
+                            <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">{overdueItems.length}</h1>
                             <p className="h4 mt-0 mb-0">Books currently overdue.</p>
                         </div>
                     </div>

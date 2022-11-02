@@ -14,7 +14,7 @@ const UserDashboard = () => {
     const [overdueBookBtn, setoverdueBookBtn] = useState('View Books');
 
     const { isLoading, error, data } = useQuery(['viewUserLoanedBooks'], () =>
-    axios.get('http://localhost:3001/loanedBooks?_expand=user&_expand=book').then(res =>
+    axios.get('http://localhost:3001/loanedBooks?userId=3&_expand=user&_expand=book').then(res =>
       res.data
     )
     )
@@ -44,6 +44,21 @@ const UserDashboard = () => {
         }
     }
 
+    // To display currently checked out books for the specific user
+    const userCheckedOutItem = data.filter( item => !item.returnedDate);
+
+
+    //To display currently overdue books for the specific user
+    //getting todays date
+    const date = new Date();
+    let day = date.getDate().toString();
+    let m = date.getMonth() + 1;
+    let month = m.toString();
+    let year = date.getFullYear().toString();
+
+    //contacting the date above to match the date format in the database
+    let currentDate = year.concat("-", month, "-", day);
+    const overdueItems = userCheckedOutItem.filter (item => new Date(item.dueDate) <  new Date(currentDate));
 
     return (
         <div className="container">
@@ -55,7 +70,7 @@ const UserDashboard = () => {
                         <img src={userImage}/>
                     </div>
                     <div className="ml-40">
-                        <h1 className="h2 red fw-600 mt-0 mb-0">Welcome back "First Name"!</h1>
+                        <h1 className="h2 red fw-600 mt-0 mb-0">Welcome back {data[0].user.firstName}!</h1>
                         <p className="h4 fw-400 mt-0">What would you like to do today?</p>
                     </div>
                 </div>
@@ -64,7 +79,7 @@ const UserDashboard = () => {
                     <CardLarge>
                         <div className="flex">
                             <div className="flex align-center">
-                                <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">6</h1>
+                                <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">{userCheckedOutItem.length}</h1>
                                 <p className="h4 mt-0 mb-0">Books currently checked out.</p>
                             </div>
                             <div className=" flex last-item align-center">
@@ -78,12 +93,11 @@ const UserDashboard = () => {
                                     <th>Book Title</th>
                                     <th>Date Checked Out</th>
                                     <th>Due Date</th>
-                                    <th>Overdue By</th>
                                     <th>Return Book</th>
                                 </tr>
                             </thead>
                             <tbody className="t-body">
-                                {data.map( book => <CheckedOutItem book={book}/> )}
+                                {userCheckedOutItem.map( book => <CheckedOutItem book={book}/> )}
                             </tbody>
                         </table>
                         }
@@ -94,7 +108,7 @@ const UserDashboard = () => {
                     <CardLarge>
                         <div className="flex">
                             <div className="flex align-center">
-                                <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">2</h1>
+                                <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">{overdueItems.length}</h1>
                                 <p className="h4 mt-0 mb-0">Books currently overdue.</p>
                             </div>
                             <div className=" flex last-item align-center">
@@ -113,7 +127,7 @@ const UserDashboard = () => {
                                 </tr>
                             </thead>
                             <tbody className="t-body">
-                                <OverdueItem/>
+                                {overdueItems.map( book => <OverdueItem book={book}/> )}
                             </tbody>
                         </table>
                         }

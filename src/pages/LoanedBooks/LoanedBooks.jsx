@@ -15,6 +15,8 @@ const LoanedBooks = () => {
 
     if (error) return 'An error has occurred: ' + error.message
 
+    const bookOnLoan = data.filter( item => !item.returnedDate);
+
     return (
         <div className="container">
             <h1 className="h1 red fw-600 mb-0">Loaned Books</h1>
@@ -23,7 +25,7 @@ const LoanedBooks = () => {
                 <CardLarge>
                     <div className="flex mb-75">
                         <div className="flex align-center">
-                            <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">2</h1>
+                            <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">{bookOnLoan.length}</h1>
                             <p className="h4 mt-0 mb-0">Books currently checked out by members.</p>
                         </div>
                     </div>

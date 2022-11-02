@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import CardSmall from '../../components/Cards/CardSmall';
+import AddBookSuccess from "./AddBookSuccess";
 import {  useMutation } from '@tanstack/react-query';
 import axios from "axios";
 
@@ -7,8 +8,6 @@ const AddBook = () => {
     const [author, setAuthor] = useState();
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
-
-
 
     const authorChangeHandler = (event) => {
         setAuthor(event.target.value);
@@ -32,7 +31,6 @@ const AddBook = () => {
                 ageRestriction: '', 
                 description: description 
             })
-            event.preventDefault();
     }
 
     const mutation = useMutation(newBook => {
@@ -40,6 +38,8 @@ const AddBook = () => {
       })
 
     return (
+        <>
+        {mutation.isSuccess ? <AddBookSuccess/> :
         <div className="container">
             <h1 className="h1 red fw-700 text-left mb-0">Add Book</h1>
             <hr className="hr"/>
@@ -47,6 +47,7 @@ const AddBook = () => {
                 <div className="flex flex-column">
                     <h1 className="h3 red text-center mb-0">Book Form</h1>
                     <CardSmall>
+                        {mutation.isLoading ? ('Adding Book....' ) : (
                         <form>
                             <div className="flex flex-column mb-20"><label className="label red fw-400">Author</label>
                             <input className="input" type="text" placeholder="Enter the author.." onChange={authorChangeHandler}/></div>
@@ -57,10 +58,13 @@ const AddBook = () => {
                             <button type="submit" className="primary-button full-width mb-20" onClick={addBookHandler}>Add Book</button>
                             <button type="cancel" className="secondary-button full-width">Cancel</button>
                         </form>
+                        )}
                     </CardSmall>
                 </div>
             </div>
         </div>
+         }
+        </>
     )
 }
 

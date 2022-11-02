@@ -20,7 +20,7 @@ const LoanedItem = (props) => {
             {bookOnLoan && <>
                 <tr className="t-row">
                     <td className="t-data__book">{props.book.book.bookTitle}</td>
-                    <td className="t-data">{props.book.user.firstName}</td>
+                    <td className="t-data">{props.book.user.lastName}, {props.book.user.firstName}</td>
                     <td className="t-data">{props.book.checkedOut}</td>
                     <td className="t-data">{props.book.dueDate}</td>
                 </tr>
