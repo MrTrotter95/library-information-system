@@ -45,6 +45,8 @@ const Signup = () => {
             event.preventDefault();
     }
 
+    
+
     const mutation = useMutation(newUser => {
         return axios.post('http://localhost:3001/users', newUser)
       })
@@ -62,27 +64,28 @@ const Signup = () => {
                         <form>
                             <div className="flex flex-column mb-20">
                                 <label className="label red fw-400">First Name</label>
-                                <input className="input" type="text" placeholder="Enter your first name" onChange={onChangeFName}/>
+                                <input className="input" type="text" required="required" placeholder="Enter your first name" onChange={onChangeFName}/>
                             </div>
                             <div className="flex flex-column mb-20">
                                 <label className="label red fw-400">Last Name</label>
-                                <input className="input" type="text" placeholder="Enter your surname" onChange={onChangeLName}/>
+                                <input className="input" type="text" required="required" placeholder="Enter your surname" onChange={onChangeLName}/>
                             </div>
                             <div className="flex flex-column mb-20">
                                 <label className="label red fw-400">Email Address</label>
-                                <input className="input" type="email" placeholder="Enter a valid email address" onChange={onChangeEmail}/>
+                                <input className="input" type="email" required placeholder="Enter a valid email address" onChange={onChangeEmail}/>
                             </div>
                             <div className="flex flex-column mb-20">
                                 <label className="label red fw-400">Date of Birth</label>
-                                <input className="input" type="date" placeholder="Enter your date of birth" onChange={onChangeDOB}/>
+                                <input className="input" type="date" required placeholder="Enter your date of birth" onChange={onChangeDOB}/>
                             </div>
                             <div className="flex flex-column mb-40">
                                 <label className="label red fw-400">Password</label>
-                                <input className="input" type="password" placeholder="Enter a secure password" onChange={onChangePass}/>
+                                <input className="input" type="password" minLength="8" required="required" placeholder="Enter a secure password" onChange={onChangePass}/>
                             </div>
                             <div className="flex">
                                 <button type="cancel" className="secondary-button full-width mr-20">Cancel</button>
-                                <button type="submit" className="primary-button full-width last-item" onClick={addAccountHandler}>Sign up!</button>
+                                <button type="submit" className="primary-button full-width last-item">Sign up!</button>
+                                {/*JORDAN: onClick={addAccountHandler} [I had to remove this to get the validation to work before the prompt would show, I don't know how to prioritize validation] */}
                             </div>
                         </form>
                     </CardSmall>

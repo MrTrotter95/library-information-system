@@ -44,6 +44,21 @@
       "password": "pass123",
       "emailAddress": "jane@library.com",
       "dateOfBirth": "1995-03-25"
+    },
+    {
+      "isAdmin": false,
+      "firstName": "Jordan",
+      "lastName": "Wall",
+      "password": "32323232",
+      "emailAddress": "jord@emai3",
+      "id": 6
+    },
+    {
+      "isAdmin": false,
+      "firstName": "fds",
+      "lastName": "fsd",
+      "emailAddress": "d",
+      "id": 7
     }
   ],
   "books": [

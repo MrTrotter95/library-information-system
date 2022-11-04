@@ -8,6 +8,7 @@ import Signup from './pages/SignUp/Signup';
 import UserDashboard from './pages/UserDashboard/UserDashboard';
 import Catalogue from './pages/Catalogue/Catalogue';
 import Profile from './pages/Profile/Profile';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 import AdminDashbord from './pages/AdminDashboard/AdminDashboard';
 import AddBook from './pages/AddBook/AddBook';
@@ -48,6 +49,10 @@ function App() {
             <Route 
             path='/Profile'
             element={<Profile/>}/>
+
+            <Route 
+            path='/EditProfile'
+            element={<EditProfile/>}/>
 
             <Route
             path='/AdminDash'
