@@ -16,6 +16,7 @@ code {
 
 /*---------- Content Control  ----------*/
 .container {
+  position: relative;
   max-width: 1250px;
   margin: 65px auto 250px auto;
 }
@@ -550,13 +551,6 @@ code {
   cursor: pointer;
   background-color: #226c6c;
   border: 1px solid #226c6c;
-}
-
-/*---------- Popup ----------*/
-.popup-bg {
-  background-color: rgba(243, 243, 245, 0.50);
-  height: 100vh;
-  position: relative;
 }
 
 /*---------- Images  ----------*/

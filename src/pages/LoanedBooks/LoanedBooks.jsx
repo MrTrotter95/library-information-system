@@ -40,7 +40,7 @@ const LoanedBooks = () => {
                             </tr>
                         </thead>
                         <tbody className="t-body">
-                            {data.map( book => <LoanedItem book={book}/> )}
+                            {bookOnLoan.map( book => <LoanedItem book={book}/> )}
                         </tbody>
                     </table>
                 </CardLarge>

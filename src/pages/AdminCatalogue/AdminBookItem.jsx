@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import React, {useState} from "react";
 import CardMedium from '../../components/Cards/CardMedium';
 import bin from '../../assets/images/bin.png';
@@ -8,6 +8,8 @@ import axios from "axios";
 const AdminBookItem = (props) => {
     const [description, setDescription] = useState("Description");
     const [showDescription, setShowDescription] = useState(false);
+
+
 
     const { isLoading, error, data } = useQuery(['adminLoanedBooksByBook', props.book.id], () =>
     axios.get(`http://localhost:3001/loanedBooks?bookId=${props.book.id}`).then(res =>
@@ -30,13 +32,18 @@ const AdminBookItem = (props) => {
 
     const loanedBook = data.find( item => !item.returnedDate);
 
+    //Deleting a book by it's ID
+    const deleteBookHandler = () => {
+        return axios.delete('http://localhost:3001/books/'+ props.book.id)
+    }
+
     return (
         <div className=" mt-50">
         <CardMedium>
             <div>
                 <div className="flex align-center">
                     <h1 className="h5 fw-600 mb-20 mt-0">{props.book.bookTitle}</h1>
-                    <div className="last-item"><button className="bin-button"><img src={bin}/></button></div>
+                    <div className="last-item"><button className="bin-button" onClick={deleteBookHandler}><img src={bin}/></button></div>
                 </div>
 
                 <div className="flex align-center mb-20">
@@ -50,7 +57,7 @@ const AdminBookItem = (props) => {
                     <p className="p1 mt-0 mb-0 ">{loanedBook.dueDate}</p></>}
                 </div>
                 <div className="flex align-center">
-                    <Link to='/EditBook'>
+                    <Link to={`/EditBook/${props.book.id}`}>
                         <button className="primary-button small">Edit Book</button>
                     </Link>
                     <button className="ml-20 secondary-button small" onClick={descriptionHandler}>{description}</button>

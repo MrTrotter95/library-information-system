@@ -21,7 +21,7 @@ const AddBook = () => {
         setDescription(event.target.value);
     }
 
-    const addBookHandler = (event) => {
+    const addBookHandler = () => {
         console.log(author, title, description);
 
         mutation.mutate(

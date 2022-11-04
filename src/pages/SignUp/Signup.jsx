@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import CardSmall from '../../components/Cards/CardSmall';
 import {  useMutation } from '@tanstack/react-query';
 import axios from "axios";
+import RegistrationSuccess from "./RegistrationSuccess";
+import RegistrationFailed from "./RegistrationFailed";
 
 const Signup = () => {
     const [firstName, setFirstName] = useState();
@@ -49,6 +51,8 @@ const Signup = () => {
 
     return (
         <div className="container">
+            {mutation.isSuccess ? <div className="popupContainer"><RegistrationSuccess/></div> : null}
+            {mutation.isError ? <div className="popupContainer"><RegistrationFailed/></div> : null}
             <h1 className="h1 red fw-700 text-left mb-0">Signup</h1>
             <hr className="hr"/>
             <div className="flex align-center justify-center">

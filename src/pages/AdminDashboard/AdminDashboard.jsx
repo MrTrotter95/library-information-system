@@ -36,6 +36,9 @@ const AdminDashboard = () => {
             <Link to='/UserProfiles'>
                 <button className="admin-btn admin__btn5 mb-40">View & Edit Users</button>
             </Link> 
+            <Link to='/LoanHistory'>
+                <button className="admin-btn admin__btn1 mb-40">View Loan History</button>
+            </Link> 
             </div>
         </div>
     )

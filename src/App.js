@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/Signup';
@@ -16,6 +16,7 @@ import LoanedBooks from './pages/LoanedBooks/LoanedBooks';
 import OverdueBooks from './pages/OverdueBooks/OverdueBooks';
 import EditBook from './pages/EditBook/EditBook';
 import ViewUserProfiles from './pages/ViewUserProfiles/ViewUserProfiles';
+import LoanHistory from './pages/LoanHistory/LoanHistory';
 
 
 function App() {
@@ -70,10 +71,14 @@ function App() {
 
             <Route 
             path='/UserProfiles'
-            element={<ViewUserProfiles/>}/>      
+            element={<ViewUserProfiles/>}/>     
 
             <Route 
-            path='/EditBook'
+            path='/LoanHistory'
+            element={<LoanHistory/>}/>  
+
+            <Route 
+            path='/EditBook/:bookId'
             element={<EditBook/>}/>    
           </Routes>
         </main>

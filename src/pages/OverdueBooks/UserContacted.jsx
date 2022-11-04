@@ -2,7 +2,7 @@ import React from "react";
 import CardPopup from '../../components/Cards/CardPopup';
 import emailPrompt from '../../assets/images/emailPrompt.png';
 
-const LoanSuccess = () => {
+const UserContacted = () => {
     return (
         <div className="popup-bg">
             <CardPopup>
@@ -19,4 +19,4 @@ const LoanSuccess = () => {
     )
 }
 
-export default LoanSuccess;
+export default UserContacted;

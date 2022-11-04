@@ -363,6 +363,21 @@
       "checkedOut": "2022-10-14",
       "dueDate": "2022-11-14",
       "returnedDate": ""
+    },
+    {
+      "bookId": 1,
+      "userId": 3,
+      "checkedOut": "2022-11-3",
+      "dueDate": "2022-12-3",
+      "returnedDate": "",
+      "id": 22
+    }
+  ],
+  "onHold": [
+    {
+      "id": 1,
+      "loanedBookId": 22,
+      "bookOnHold": true
     }
   ]
 }
