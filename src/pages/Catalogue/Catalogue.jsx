@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import Fuse from "fuse.js";
 import BookItem from "./BookItem";
-import books from "./books.json";
 import arrow from '../../assets/images/arrow.png';
 import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 
 const Catalogue = () => {
-    const [data, setData] = useState(books);
+    const [books, setBooks] = useState(data);
+
+    const { isLoading, error, data } = useQuery(['books'], () =>
+    axios.get('http://localhost:3001/books').then(res =>
+      res.data
+    )
+    )
+
+    if (isLoading) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
 
     const searchData = (pattern) => {
         if (!pattern) {
-            setData(books);
+            setBooks(books);
             return;
         }
 
@@ -22,12 +31,12 @@ const Catalogue = () => {
         const result = fuse.search(pattern);
         const matches = [];
         if (!result.length) {
-            setData([]);
+            setBooks([]);
         } else {
             result.forEach(({item}) => {
                 matches.push(item);
             });
-            setData(matches);
+            setBooks(matches);
         }
     }
 
@@ -42,7 +51,7 @@ const Catalogue = () => {
             </div>
             <hr className="hr"/>
             <div className="flex wrap justify-center space-between mb-75">
-                {data.map( book => <BookItem book={book}/> )}
+                {books.map( book => <BookItem book={book}/> )}
             </div>
 
             <div className="flex justify-center align-center mb-50">

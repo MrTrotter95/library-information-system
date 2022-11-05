@@ -27,8 +27,7 @@ const AddBook = () => {
         mutation.mutate(
             {
                 bookTitle: title, 
-                author: author, 
-                ageRestriction: '', 
+                author: author,  
                 description: description 
             })
     }

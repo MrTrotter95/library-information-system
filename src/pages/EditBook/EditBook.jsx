@@ -18,7 +18,6 @@ const EditBook = () => {
                 id: bookId,
                 bookTitle: bookTitle,
                 author: author,
-                ageRestriction: "",
                 description: description
             }
         )

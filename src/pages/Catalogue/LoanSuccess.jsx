@@ -1,6 +1,7 @@
 import React from "react";
 import CardPopup from '../../components/Cards/CardPopup';
 import tick from '../../assets/images/tickPrompt.png';
+import { Link } from "react-router-dom";
 
 const LoanSuccess = () => {
     return (
