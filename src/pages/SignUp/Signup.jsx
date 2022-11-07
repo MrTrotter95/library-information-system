@@ -33,19 +33,17 @@ const Signup = () => {
     }
 
     const addAccountHandler = (event) => {
-        mutation.mutate(
-            {
-                isAdmin: false, 
-                firstName: firstName, 
-                lastName: lastName, 
-                password: password,
-                emailAddress: email,
-                dateOfBirth: dob
-            })
-            event.preventDefault();
+            mutation.mutate(
+                {
+                    isAdmin: false, 
+                    firstName: firstName, 
+                    lastName: lastName, 
+                    password: password,
+                    emailAddress: email,
+                    dateOfBirth: dob
+                })
+                event.preventDefault();
     }
-
-    
 
     const mutation = useMutation(newUser => {
         return axios.post('http://localhost:3001/users', newUser)
@@ -61,7 +59,7 @@ const Signup = () => {
                 <div className="flex flex-column">
                     <h1 className="h3 red text-center mt-50 mb-0">Fill out our form</h1>
                     <CardSmall>
-                        <form>
+                        <form onSubmit={addAccountHandler}>
                             <div className="flex flex-column mb-20">
                                 <label className="label red fw-400">First Name</label>
                                 <input className="input" type="text" required="required" placeholder="Enter your first name" onChange={onChangeFName}/>
@@ -85,7 +83,6 @@ const Signup = () => {
                             <div className="flex">
                                 <button type="cancel" className="secondary-button full-width mr-20">Cancel</button>
                                 <button type="submit" className="primary-button full-width last-item">Sign up!</button>
-                                {/*JORDAN: onClick={addAccountHandler} [I had to remove this to get the validation to work before the prompt would show, I don't know how to prioritize validation] */}
                             </div>
                         </form>
                     </CardSmall>
