@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 
 const LoanHistory = () => {
-    const { isLoading, error, data } = useQuery(['viewLoanHistory'], () =>
+    const { isLoading, error, data } = useQuery(['viewUserInfoByUser'], () =>
     axios.get('http://localhost:3001/loanedBooks?_expand=user&_expand=book').then(res =>
       res.data
     )

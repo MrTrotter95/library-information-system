@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import profile_bg from '../../assets/images/profile_bg.png';
 import userImage from '../../assets/images/userImage.png';
-import profile_selected from '../../assets/images/profile_selected.png';
 import PersonalInfo from "./PersonalInfo";
 import LoanHistory from "./LoanHistory";
 import EditPassword from './EditPassword';

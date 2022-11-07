@@ -13,7 +13,6 @@ const Profile = () => {
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
-    const [dateOfBirth, setDateOfBirth] = useState();
     let {profileId} = useParams();
 
     const editProfileHandler = () => {
@@ -22,8 +21,7 @@ const Profile = () => {
                 id: profileId,
                 firstName: firstName,
                 lastName: lastName,
-                email: email,
-                dateOfBirth: dateOfBirth
+                email: email
             }
         )
     }
@@ -44,10 +42,6 @@ const Profile = () => {
         setEmail(event.target.value);
     }
 
-    const dateOfBirthChangeHandler = (event) => {
-        setDateOfBirth(event.target.value);
-    }
-
     return (
         <div className="container">
             <h1 className="h1 red fw-700 text-left mb-0">Edit Profile</h1>
@@ -62,9 +56,7 @@ const Profile = () => {
                             <input className="input" type="text" onChange={lastNameChangeHandler}/></div>
                             <div className="flex flex-column mb-20"><label className="label red fw-400">Email</label>
                             <input className="input" type="email" onChange={emailChangeHandler}/></div>
-                            <div className="flex flex-column mb-20"><label className="label red fw-400">Date of Birth</label>
-                            <input className="input" type="date" onChange={dateOfBirthChangeHandler}/></div>
-                            <button type="submit" className="secondary-button full-width mb-20" onClick={editProfileHandler}>Send Temp Password</button>
+                            <button type="submit" className="secondary-button full-width mb-20" onClick={()=>{ alert('Temporary password sent to the User!'); }}>Send Temp Password</button>
                             <button type="submit" className="primary-button full-width mb-20" onClick={editProfileHandler}>Confirm Changes</button>
                             <button type="cancel" className="secondary-button full-width">Cancel</button>
                         </form>

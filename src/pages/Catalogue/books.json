@@ -3,147 +3,126 @@
     "id": 1,
     "bookTitle": "Lord of the rings",
     "author": "J.R.R Tolkien",
-    "ageRestriction": "",
     "description": "A book about a ring and an evil dude."
   },
   {
     "id": 2,
     "bookTitle": "The Hobbit",
     "author": "J.R.R Tolkien",
-    "ageRestriction": "",
     "description": "A book about a small people."
   },
   {
     "id": 3,
     "bookTitle": "A court of frost and starlight",
     "author": "Sarah J. Maas",
-    "ageRestriction": "",
     "description": "Feyre's first Winter Solstice as High Ladt is drawing near. With it will come a hard-earned read from the work she, RHys and their friends have done to rebuilt the NIght Court and the castly changed world beyond."
   },
   {
     "id": 4,
     "bookTitle": "Blood & Honey",
     "author": "Shelby Mahurin",
-    "ageRestriction": "",
     "description": "Lou and Reid have been reunited. But they are pursued on all sides by coven, kingdom, and church. Their time-and luck- is running out."
   },
   {
     "id": 5,
     "bookTitle": "Serpent & Dove",
     "author": "Shelby Mahurin",
-    "ageRestriction": "",
     "description": "Bound as one. A witch and a witch hunter, thrust together in holy matrimony. There was only one way such a story could end- a stake & a match."
   },
   {
     "id": 6,
     "bookTitle": "The graveyard book",
     "author": "Neil Gaiman",
-    "ageRestriction": "",
     "description": "Nobody Owens, known as Bod, is a normal boy. He would be completely normal if he didn't live in a graveyard, being raised by ghosts, with a guardian who belongs to neither the world of the living nor the dead."
   },
   {
     "id": 7,
     "bookTitle": "A game of thrones",
     "author": "George R.R. Martin",
-    "ageRestriction": "",
     "description": "As Warden of the north, Lord Eddard Stark counts it a curse when King Robert bestows on him the office of the Hand. His honour weights him down at court where a true man does what he will, not what he must ... and a dead enemy is a thing of beauty."
   },
   {
     "id": 8,
     "bookTitle": "A clash of kings",
     "author": "George R.R. Martin",
-    "ageRestriction": "",
     "description": "From the ancient citadel of Dragonstone to the forbidding lands of Winterfell, chaos reigns as pretenders to the Iron Throne of the Seven Kingdoms stake their claims through the tempest, turmoil of war."
   },
   {
     "id": 9,
     "bookTitle": "A storm of swords",
     "author": "George R.R. Martin",
-    "ageRestriction": "",
     "description": "Robb Stark may be King in the North, by he must bend to the will of the old tyrant Walder Frey if he is to hold his crown. And while his youngest sister, Arya, has escaped the clutches of the depraved Cersei Lannister and her son, the capricious boy-king Joffrey, Sansa Stark remains their captive."
   },
   {
     "id": 10,
     "bookTitle": "Eragon",
     "author": "Christopher Paolini",
-    "ageRestriction": "",
     "description": "When Eragon finds a polished blue stone in the forest, he thinks it is the lucky discovery of a poor farm boy;perhaps it will buy his family meat for the winter. But when the stone brings a dragon hatchling, Eragon soon realizes he has stumbled upon a legacy nearly as old as the Empire itself."
   },
   {
     "id": 11,
     "bookTitle": "Eldest",
     "author": "Christopher Paolini",
-    "ageRestriction": "",
     "description": "Eragon and his dragon, Saphira, have just saved the rebel state from destruction by the mighty forces of King Galbatorix, cruel rules of the Empire. Now Eragon must travel to Ellesmera, land of the elves for further training in magic and swordsmanship, the vital skills of the Dragon Rider."
   },
   {
     "id": 12,
     "bookTitle": "Brisingr",
     "author": "Christopher Paolini",
-    "ageRestriction": "",
     "description": "It's been only months since Eragon first uttered brisignr, an ancient-language term of fire. Since then, he's not only learned to create magic with words - he's been challenged to his very core. Following the colossal battle against the Empire's warriors on the Burning Plains, Eragon and his dragon have narrowly escaped with their lives."
   },
   {
     "id": 13,
     "bookTitle": "Inheritance",
     "author": "Christopher Paolini",
-    "ageRestriction": "",
     "description": "Not so very long ago, Eragon - Shadeslayer, Dragon Rider - was nothin more than a poor farm boy, and his dragon Saphira, only a blue stone in the forest. Now, the fate of an entire civilization rests on their shoulders."
   },
   {
     "id": 14,
     "bookTitle": "A court of thorns and roses",
     "author": "Sarah J. Maas",
-    "ageRestriction": "",
     "description": "She thinks nothing of slaughtering a wolf to capture its prey. But, like all mortals, she fears what lingers mercilessly beyond the forest. And she will learn that taking the life of a magical creature comes at a high price."
   },
   {
     "id": 15,
     "bookTitle": "A court of mist and fury",
     "author": "Sarah J. Maas",
-    "ageRestriction": "",
     "description": "After rescuing her love Tamlin from a wicked Faerie Queen, shee returns to the Spring Court posessing the powers of the High Far. But Feyre cannot forget the terrible deeds she performed to save Tamlin's people - nor the bargain she made with Rhysand, High Lord of the feared Night Court."
   },
   {
     "id": 16,
     "bookTitle": "A court of wings and ruin",
     "author": "Sarah J. Maas",
-    "ageRestriction": "",
     "description": "She has left the Night Cour - and her High Lord - and is playing a deadly game of deceit. In the Spring Court, Tamlin is making deals with the invading king threatening to bring Prythian to its knees and Feyre is determined to uncover his plans."
   },
   {
     "id": 17,
     "bookTitle": "Once & future",
     "author": "Amy Rose Capetta",
-    "ageRestriction": "",
     "description": "Coming to terms with your identity is always difficult. But for Ari, as the reincarnation of King Arthur, it just got a lot more complicated. What on Earth can she hope to achieve with a rusty spaceship and an adolescent wizard called Merlin?"
   },
   {
     "id": 18,
     "bookTitle": "Tomorrow, when the war began",
     "author": "John Marsden",
-    "ageRestriction": "",
     "description": "Ellie and her friends leave home one morning, wave goodbye to their parents and head into the hills to camp out for a while; seven teenagers filling in time during school holidays. The world is about to change forever. Their lives will never be the same again."
   },
   {
     "id": 19,
     "bookTitle": "The knife of never letting go",
     "author": "Patrick Ness",
-    "ageRestriction": "",
     "description": "Prentisstown isn't like other townds. Everyone can hear everyone else's thoughts in a constant, overwhelming Noise. There is no privacy. There are no secrets. Then, just one month away from the birthday that will make Todd Hewitt a man, he unexpectedly stumbles on a spot of complete silence. Which is impossible. And now he's going to have to run..."
   },
   {
     "id": 20,
     "bookTitle": "The ask and the answer",
     "author": "Patrick Ness",
-    "ageRestriction": "",
     "description": "Fleeing before a relentless army, Todd and Viola once again face their worst enemy, Mayor Prentiss. Immediately imprisoned and separated from Viola, Todd is forced to learn the ways of the Mayor's new order. And then, one day, the bombs begin to explode..."
   },
   {
     "id": 21,
     "bookTitle": "Monsters of men",
     "author": "Patrick Ness",
-    "ageRestriction": "",
     "description": "Three armies march on New Prentisstown. The New World is at war. Todd and Viola are caught in the middle with no chance of escape. How can they hope to stop the fighting? And if war makes monsters of men, what terrible choices await?"
   }
 ]

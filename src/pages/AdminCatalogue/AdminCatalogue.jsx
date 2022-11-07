@@ -28,15 +28,6 @@ const AdminCatalogue = () => {
             <div className="flex wrap justify-center space-between mb-75">
                 {data.map( book => <AdminBookItem book={book}/> )}
             </div>
-
-            <div className="flex justify-center align-center mb-50">
-                <button className="pagination-button__prev">Previous</button>
-                <button className="pagination-button">1</button>
-                <button className="pagination-button">2</button>
-                <button className="pagination-button">3</button>
-                <button className="pagination-button__next">Next</button>
-            </div>
-
             <hr className="hr mb-250"/>
         </div>
     )

@@ -13,7 +13,6 @@ const PersonalInfo = () => {
 
     if (error) return 'An error has occurred: ' + error.message
 
-
     return (
         <div className="ml-200 mr-200">
         <h1 className="h4 fw-400 text-center mb-50">Personal Information</h1>
@@ -29,10 +28,6 @@ const PersonalInfo = () => {
                 <div className="flex flex-column mb-30">
                     <label className="label red fw-400">Email Address</label>
                     <input className="input" type="email" placeholder={data[0].emailAddress}/>
-                </div>
-                <div className="flex flex-column mb-30">
-                    <label className="label red fw-400">Date of Birth</label>
-                    <input className="input" type="date"/>
                 </div>
                 <button className="primary-button full-width" type="submit">Confirm & Save</button>
             </form>
