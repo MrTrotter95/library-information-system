@@ -9,28 +9,36 @@ import EditSuccess from "./EditSuccess";
 import ConfirmationFailed from "./ConfirmationFailed";
 import SendTempPass from "./SendTempPass";
 
-const Profile = () => {
+const EditProfile = () => {
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
-    const [dateOfBirth, setDateOfBirth] = useState();
-    let {profileId} = useParams();
+    let {userId} = useParams();
 
-    const editProfileHandler = () => {
+    const editProfileHandler = (event) => {
         mutation.mutate(
             {
-                id: profileId,
                 firstName: firstName,
                 lastName: lastName,
-                email: email,
-                dateOfBirth: dateOfBirth
+                email: email
             }
         )
+        event.preventDefault()
     }
-
+    
     const mutation = useMutation(editProfile => {
-        return axios.put('http://localhost:3001/profile/'+ profileId, editProfile)
-      })
+        return axios.patch('http://localhost:3001/users/'+ userId, editProfile)
+    })
+
+    const { isLoading, error, data } = useQuery(['editProfileByUser', userId], () =>
+    axios.get(`http://localhost:3001/users/${userId}`).then(res =>
+    res.data
+    )
+    )
+
+    if (isLoading) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
 
     const firstNameChangeHandler = (event) => {
         setFirstName(event.target.value);
@@ -43,10 +51,7 @@ const Profile = () => {
     const emailChangeHandler = (event) => {
         setEmail(event.target.value);
     }
-
-    const dateOfBirthChangeHandler = (event) => {
-        setDateOfBirth(event.target.value);
-    }
+    
 
     return (
         <div className="container">
@@ -55,18 +60,23 @@ const Profile = () => {
             <div className="flex flex-row align-center justify-center">
                 <div className="mr-50">
                 <CardSmall>
-                        <form>
-                            <div className="flex flex-column mb-20"><label className="label red fw-400">First Name</label>
-                            <input className="input" type="text" onChange={firstNameChangeHandler}/></div>
-                            <div className="flex flex-column mb-20"><label className="label red fw-400">Last Name</label>
-                            <input className="input" type="text" onChange={lastNameChangeHandler}/></div>
-                            <div className="flex flex-column mb-20"><label className="label red fw-400">Email</label>
-                            <input className="input" type="email" onChange={emailChangeHandler}/></div>
-                            <div className="flex flex-column mb-20"><label className="label red fw-400">Date of Birth</label>
-                            <input className="input" type="date" onChange={dateOfBirthChangeHandler}/></div>
-                            <button type="submit" className="secondary-button full-width mb-20" onClick={editProfileHandler}>Send Temp Password</button>
-                            <button type="submit" className="primary-button full-width mb-20" onClick={editProfileHandler}>Confirm Changes</button>
+                        <form onSubmit={editProfileHandler}>
+                            <div className="flex flex-column mb-20">
+                                <label className="label red fw-400">First Name</label>
+                                <input className="input" type="text" onChange={firstNameChangeHandler} defaultValue={data.firstName} />
+                            </div>
+                            <div className="flex flex-column mb-20">
+                                <label className="label red fw-400">Last Name</label>
+                                <input className="input" type="text" onChange={lastNameChangeHandler} defaultValue={data.lastName}/>
+                            </div>
+                            <div className="flex flex-column mb-20">
+                                <label className="label red fw-400">Email</label>
+                                <input className="input" type="email" onChange={emailChangeHandler} defaultValue={data.emailAddress}/>
+                            </div>
+                            <button className="secondary-button full-width mb-20" onClick={()=>{ alert('Temporary password sent to the User!'); }}>Send Temp Password</button>
+                            <button type="submit" className="primary-button full-width mb-20" >Confirm Changes</button>
                             <button type="cancel" className="secondary-button full-width">Cancel</button>
+                            {mutation.isSuccess && <p className=" mt-30 mb-0 label red fw-400">You have successfully updated the users details.</p>}
                         </form>
                     </CardSmall>
                 </div>
@@ -75,4 +85,4 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+export default EditProfile;

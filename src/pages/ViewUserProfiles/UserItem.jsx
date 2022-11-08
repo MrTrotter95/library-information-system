@@ -23,12 +23,11 @@ const UserItem = (props) => {
     let month = m.toString();
     let year = date.getFullYear().toString();
 
-        //contacting the date above to match the date format in the database
+    //contacting the date above to match the date format in the database
     let currentDate = year.concat("-", month, "-", day);
 
     const loanedItem = data.filter( item => !item.returnedDate);
     const overdueItems = loanedItem.filter (item => new Date(item.dueDate) <  new Date(currentDate));
-
 
     return (
         <tr className="t-row">
@@ -37,7 +36,7 @@ const UserItem = (props) => {
             <td className="t-data">{loanedItem.length}</td>
             <td className="t-data red">{overdueItems.length}</td>
             <td className="flex justify-center">
-                <Link>
+                <Link to={`/EditProfile/${props.user.id}`}>
                     <button className="table-button">Edit User</button>
                 </Link>
             </td>

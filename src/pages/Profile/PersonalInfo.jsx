@@ -1,45 +1,63 @@
-import React from "react";
-import { useQuery } from '@tanstack/react-query';
+import React, { useState } from "react";
+import { useMutation } from '@tanstack/react-query';
 import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
 
 const PersonalInfo = () => {
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
+    const [email, setEmail] = useState();
+
     const { user } = useAuthContext()
 
-    const { isLoading, error, data } = useQuery(['viewUserInfoByUser'], () =>
-    axios.get('http://localhost:3001/users?id=3').then(res =>
-      res.data
-    )
-    )
+    const fNameChangeHandler = (event) => {
+        setFirstName(event.target.value);
+    }
 
-    if (isLoading) return 'Loading...'
+    const lNameChangeHandler = (event) => {
+        setLastName(event.target.value);
+    }
 
-    if (error) return 'An error has occurred: ' + error.message
+    const emailChangeHandler = (event) => {
+        setEmail(event.target.value);
+    }
 
+    //Allowing a user to edit their personal informaion
+    const changeInformationHandler = (event) => {
+        mutation.mutate(
+            {
+                firstName: firstName,
+                lastName: lastName,
+                emailAddress: email 
+            })
+        event.preventDefault();
+    }
+
+    const mutation = useMutation(changeInformation => {
+            return axios.patch('http://localhost:3001/users/'+ user.id, changeInformation)
+        })
+    
 
     return (
-        <div className="ml-200 mr-200">
-        <h1 className="h4 fw-400 text-center mb-50">Personal Information</h1>
-            <form>
-                <div className="flex flex-column mb-30">
-                    <label className="label red fw-400">First Name</label>
-                    <input className="input" placeholder={user.firstName}/>
-                </div>
-                <div className="flex flex-column mb-30">
-                    <label className="label red fw-400">Last Name</label>
-                    <input className="input" placeholder={user.lastName}/>
-                </div>
-                <div className="flex flex-column mb-30">
-                    <label className="label red fw-400">Email Address</label>
-                    <input className="input" type="email" placeholder={user.emailAddress}/>
-                </div>
-                <div className="flex flex-column mb-30">
-                    <label className="label red fw-400">Date of Birth</label>
-                    <input className="input" type="date"/>
-                </div>
-                <button className="primary-button full-width" type="submit">Confirm & Save</button>
-            </form>
-    </div>
+        <div className="ml-200">
+            <h1 className="h4 fw-400 text-center mb-50">Personal Information</h1>
+                <form onSubmit={changeInformationHandler}>
+                    <div className="flex flex-column mb-30">
+                        <label className="label red fw-400">First Name</label>
+                        <input className="input" defaultValue={user.firstName} onChange={fNameChangeHandler}/>
+                    </div>
+                    <div className="flex flex-column mb-30">
+                        <label className="label red fw-400">Last Name</label>
+                        <input className="input" defaultValue={user.lastName} onChange={lNameChangeHandler}/>
+                    </div>
+                    <div className="flex flex-column mb-30">
+                        <label className="label red fw-400">Email Address</label>
+                        <input className="input" type="email" defaultValue={user.emailAddress} onChange={emailChangeHandler}/>
+                    </div>
+                    <button className="primary-button full-width" type="submit">Confirm & Save</button>
+                    {mutation.isSuccess && <p className="label red fw-400">Your account information has successfully been changed.</p>}
+                </form>
+        </div>
     )
 }
 

@@ -55,7 +55,7 @@ const BooksOnHold = () => {
                         </tr>
                     </thead>
                     <tbody className="t-body">
-                        {data.map( book => <RequestHoldItem book={book}/> )}
+                        {test.map( book => <RequestHoldItem book={book}/> )}
                     </tbody>
                 </table>
                 }

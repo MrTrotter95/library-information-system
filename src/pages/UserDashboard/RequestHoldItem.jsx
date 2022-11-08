@@ -13,7 +13,6 @@ const RequestHoldItem = (props) => {
 
     },[props.book.loanedBooks[0].returnedDate]);
 
-
     return(
         <tr className="t-row">
             <td className="t-data__book">{props.book.bookTitle}</td>

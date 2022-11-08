@@ -51,7 +51,7 @@ function App() {
             element={<Profile/>}/>
 
             <Route 
-            path='/EditProfile'
+            path='/EditProfile/:userId'
             element={<EditProfile/>}/>
 
             <Route
@@ -84,7 +84,8 @@ function App() {
 
             <Route 
             path='/EditBook/:bookId'
-            element={<EditBook/>}/>    
+            element={<EditBook/>}/>   
+ 
           </Routes>
         </main>
       <Footer/>

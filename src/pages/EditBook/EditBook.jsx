@@ -12,19 +12,19 @@ const EditBook = () => {
     const [description, setDescription] = useState();
     let {bookId} = useParams();
 
-    const editBookHandler = () => {
+    const editBookHandler = (event) => {
         mutation.mutate(
             {
-                id: bookId,
                 bookTitle: bookTitle,
                 author: author,
                 description: description
             }
         )
+        event.preventDefault();
     }
 
     const mutation = useMutation(editBook => {
-        return axios.put('http://localhost:3001/books/'+ bookId, editBook)
+        return axios.patch('http://localhost:3001/books/'+ bookId, editBook)
       })
 
 
@@ -61,13 +61,14 @@ const EditBook = () => {
                     <CardSmall>
                         <form>
                             <div className="flex flex-column mb-20"><label className="label red fw-400">Author</label>
-                            <input className="input" type="text" placeholder={data.author} onChange={authorChangeHandler}/></div>
+                            <input className="input" type="text" defaultValue={data.author} onChange={authorChangeHandler}/></div>
                             <div className="flex flex-column mb-20"><label className="label red fw-400">Title</label>
-                            <input className="input" type="text" placeholder={data.bookTitle} onChange={bookTitleChangeHandler}/></div>
+                            <input className="input" type="text" defaultValue={data.bookTitle} onChange={bookTitleChangeHandler}/></div>
                             <div className="flex flex-column mb-20"><label className="label red fw-400">Description</label>
                             <textarea className="input textarea_desc" cols="50" rows="10" onChange={descriptionChangeHandler}>{data.description}</textarea></div>
                             <button type="submit" className="primary-button full-width mb-20" onClick={editBookHandler}>Confirm Changes</button>
                             <button type="cancel" className="secondary-button full-width">Cancel</button>
+                            {mutation.isSuccess && <p className=" mt-30 mb-0 label red fw-400">You have successfully updated the book details.</p>}
                         </form>
                     </CardSmall>
                 </div>
