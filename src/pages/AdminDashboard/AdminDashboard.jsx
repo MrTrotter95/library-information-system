@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import React from "react";
 import './AdminDashboard.css';
 import userImage from '../../assets/images/userImage.png';
+import { useAuthContext } from "../../context/AuthContext";
 
 const AdminDashboard = () => {
+    const { user } = useAuthContext()
+
     return (
         <div className="container">
             <h1 className="h2 red fw-600 mb-0">Administrator Dashboard</h1>
@@ -14,7 +17,7 @@ const AdminDashboard = () => {
                         <img src={userImage}/>
                     </div>
                     <div className="ml-40">
-                        <h1 className="h2 red fw-600 mt-0 mb-0">Welcome back "First Name"!</h1>
+                        <h1 className="h2 red fw-600 mt-0 mb-0">Welcome back {user.firstName}!</h1>
                         <p className="h4 fw-400 mt-0">What would you like to do today?</p>
                     </div>
                 </div>

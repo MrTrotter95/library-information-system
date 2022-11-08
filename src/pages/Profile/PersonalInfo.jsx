@@ -1,8 +1,11 @@
 import React from "react";
 import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 const PersonalInfo = () => {
+    const { user } = useAuthContext()
+
     const { isLoading, error, data } = useQuery(['viewUserInfoByUser'], () =>
     axios.get('http://localhost:3001/users?id=3').then(res =>
       res.data
@@ -20,15 +23,15 @@ const PersonalInfo = () => {
             <form>
                 <div className="flex flex-column mb-30">
                     <label className="label red fw-400">First Name</label>
-                    <input className="input" placeholder={data[0].firstName}/>
+                    <input className="input" placeholder={user.firstName}/>
                 </div>
                 <div className="flex flex-column mb-30">
                     <label className="label red fw-400">Last Name</label>
-                    <input className="input" placeholder={data[0].lastName}/>
+                    <input className="input" placeholder={user.lastName}/>
                 </div>
                 <div className="flex flex-column mb-30">
                     <label className="label red fw-400">Email Address</label>
-                    <input className="input" type="email" placeholder={data[0].emailAddress}/>
+                    <input className="input" type="email" placeholder={user.emailAddress}/>
                 </div>
                 <div className="flex flex-column mb-30">
                     <label className="label red fw-400">Date of Birth</label>

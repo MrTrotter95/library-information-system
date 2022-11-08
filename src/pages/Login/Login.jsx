@@ -1,8 +1,39 @@
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, {useState} from "react";
 import CardSmall from '../../components/Cards/CardSmall';
+import { useAuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 const Login = () => {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    const { user, signIn } = useAuthContext();
+    const navigate = useNavigate();
+
+    const emailHandler = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const passwordHandler = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const signInHandler = (event) => {
+        event.preventDefault()
+        axios.get(`http://localhost:3001/users?emailAddress=${email}&password=${password}`).then(res =>
+            {if(res.data.length === 1) {
+                signIn(res.data[0])
+                if(res.data[0].isAdmin === true) {
+                    navigate('/AdminDash')
+                } else {
+                    navigate('/Dashboard')
+                }
+            } else {
+                window.alert("Email address or password is incorrect. Please try again");
+            }}
+    )}
+
     return (
         <div className="container">
             <h1 className="h1 red fw-700 text-left mb-0">Login</h1>
@@ -19,17 +50,16 @@ const Login = () => {
                 <div>
                     <h1 className="h2 red fw-700 text-center mb-0">Login</h1>
                         <CardSmall>
-                            <form>
+                            <form onSubmit={signInHandler}>
                                 <div className="flex flex-column mb-30">
                                     <label className="label red fw-400">Email Address</label>
-                                    <input className="input"/>
+                                    <input className="input" onChange={emailHandler}/>
                                 </div>
                                 <div className="flex flex-column mb-30">
                                     <label className="label red fw-400">Password</label>
-                                    <input className="input"/>
+                                    <input className="input" type="password" onChange={passwordHandler}/>
                                 </div>
-
-                                <button className="primary-button full-width" type="subit">Sign In</button>
+                                <button className="primary-button full-width" type="submit">Sign In</button>
                             </form>
                         </CardSmall>
                 </div>

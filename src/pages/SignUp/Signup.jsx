@@ -4,6 +4,7 @@ import {  useMutation } from '@tanstack/react-query';
 import axios from "axios";
 import RegistrationSuccess from "./RegistrationSuccess";
 import RegistrationFailed from "./RegistrationFailed";
+import { useAuth } from "../../hooks/Auth";
 
 const Signup = () => {
     const [firstName, setFirstName] = useState();
@@ -46,8 +47,15 @@ const Signup = () => {
     }
 
     const mutation = useMutation(newUser => {
-        return axios.post('http://localhost:3001/users', newUser)
-      })
+        axios.post('http://localhost:3001/users', newUser)
+        axios.get(`http://localhost:3001/users?emailAddress=${email}&password=${password}`).then(res =>
+            {if(res.data.length === 1) {
+                useAuth.signIn(res.data[0])
+                //redirect to dashboard
+            }} // else user name incorrect etc..
+        //get request to get current user.
+        //sign in user.
+    )})
 
     return (
         <div className="container">

@@ -22,6 +22,21 @@ nav {
     list-style: none;
 }
 
+.notLoggedIn {
+    width: 650px;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.notLoggedInLink {
+    margin-left: 25px;
+}
+
 .list-link {
     text-decoration: none;
+}
+
+.list-link:hover {
+    cursor: pointer;
 }

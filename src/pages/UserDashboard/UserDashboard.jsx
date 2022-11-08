@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import userImage from '../../assets/images/userImage.png';
 import CardLarge from '../../components/Cards/CardLarge';
+import BooksOnHold from "./BooksOnHold";
 import UserOverdueItem from "./UserOverdueItem";
 import CheckedOutItem from './CheckedOutItem';
-import RequestHoldItem from "./RequestHoldItem";
 import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 const UserDashboard = () => {
     const [checkedOut, setCheckedOut] = useState(false);
@@ -14,14 +15,14 @@ const UserDashboard = () => {
     const [overdueBooks, setOverDueBooks] = useState(false);
     const [overdueBookBtn, setoverdueBookBtn] = useState('View Books');
 
-    const [onHoldBooks, setOnHoldBooks] = useState(false);
-    const [onHoldBtn, setOnHoldBtn] = useState('View Books');
 
-    const { isLoading, error, data } = useQuery(['viewUserLoanedBooks'], () =>
-    axios.get('http://localhost:3001/loanedBooks?userId=3&_expand=user&_expand=book&_expand=onHold').then(res =>
+
+    const { user } = useAuthContext()
+
+    const { isLoading, error, data } = useQuery(['viewUserLoanedBooks', user.id], () =>
+    axios.get(`http://localhost:3001/loanedBooks?userId=${user.id}&_expand=user&_expand=book`).then(res =>
       res.data
-    )
-    )
+    ))
 
     if (isLoading) return 'Loading...'
 
@@ -47,22 +48,12 @@ const UserDashboard = () => {
         }
     }
 
-    const viewOnHoldHandler = () => {
-        if(onHoldBooks == true) {
-            setOnHoldBooks(false);
-            setOnHoldBtn('View Books');
-        } else if(onHoldBooks == false) {
-            setOnHoldBooks(true);
-            setOnHoldBtn('Hide');
-        }
-    }
+
 
     // To display currently checked out books for the specific user
     const userCheckedOutItem = data.filter( item => !item.returnedDate);
-    //To display the books the user has on hold
-    const userOnHoldItem = data.filter( item => item.bookOnHold);
 
-
+    
     //To display currently overdue books for the specific user
     //getting todays date
     const date = new Date();
@@ -85,7 +76,7 @@ const UserDashboard = () => {
                         <img src={userImage}/>
                     </div>
                     <div className="ml-40">
-                        <h1 className="h2 red fw-600 mt-0 mb-0">Welcome back {data[0].user.firstName}!</h1>
+                        <h1 className="h2 red fw-600 mt-0 mb-0">Welcome back {user.firstName}!</h1>
                         <p className="h4 fw-400 mt-0">What would you like to do today?</p>
                     </div>
                 </div>
@@ -148,36 +139,7 @@ const UserDashboard = () => {
                         }
                     </CardLarge>
                 </div>
-
-                <div>
-                    <CardLarge>
-                        <div className="flex">
-                            <div className="flex align-center">
-                                <h1 className="h3 red fw-600 mt-0 mb-0 mr-20">2</h1>
-                                <p className="h4 mt-0 mb-0">Books On Hold</p>
-                            </div>
-                            <div className=" flex last-item align-center">
-                                <button className="primary-button large" onClick={viewOnHoldHandler}>{onHoldBtn}</button>
-                            </div>
-                        </div>
-                        {onHoldBooks && 
-                        <table className="table">
-                            <thead className="t-head">
-                                <tr>
-                                    <th>Book Title</th>
-                                    <th>Author</th>
-                                    <th>Due Date</th>
-                                    <th>Available?</th>
-                                    <th>Checkout</th>
-                                </tr>
-                            </thead>
-                            <tbody className="t-body">
-                                {userOnHoldItem.map( book => <RequestHoldItem book={book}/> )}
-                            </tbody>
-                        </table>
-                        }
-                    </CardLarge>
-                </div>
+                <BooksOnHold/>
             </div>
         </div>
     )

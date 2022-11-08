@@ -1,12 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import CardMedium from '../../components/Cards/CardMedium';
-import { useQuery } from '@tanstack/react-query';
-import {  useMutation } from '@tanstack/react-query';
+import {  useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from "axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 const BookItem = (props) => {
     const [description, setDescription] = useState("Description");
     const [showDescription, setShowDescription] = useState(false);
+
+    const queryClient = useQueryClient()
+    const { user } = useAuthContext()
+
 
     //getting todays date
     const date = new Date();
@@ -28,15 +32,44 @@ const BookItem = (props) => {
         mutation.mutate(
             {
                 bookId: props.book.id,
-                userId: 3, // Need to update this once user accounts are logged in
+                userId: user.id, // Need to update this once user accounts are logged in
                 checkedOut: currentDate,
                 dueDate: dueDate,
                 returnedDate: ""
             })
     }
 
-    const mutation = useMutation(checkBook => {
-        return axios.post('http://localhost:3001/loanedBooks', checkBook)
+    const mutation = useMutation({
+        mutationFn: checkBook => {
+            return axios.post('http://localhost:3001/loanedBooks', checkBook)
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['books'] })
+            queryClient.invalidateQueries({ queryKey: ['loanedBooksByBook']})
+        },
+    })
+
+    //Allowing a user to place a book on hold
+    const requestHoldHandler = () => {
+        mutateHold.mutate(
+            {
+                id: props.book.id,
+                onHold: user.id,
+                bookTitle: props.book.bookTitle,
+                author: props.book.author,
+                description: props.book.description
+            }
+        )
+    }
+
+    const mutateHold = useMutation({
+        mutationFn: requestHold => {
+            return axios.patch('http://localhost:3001/books/'+ props.book.id, requestHold)
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['books'] })
+            queryClient.invalidateQueries({ queryKey: ['loanedBooksByBook']})
+        },
     })
 
     const { isLoading, error, data } = useQuery(['loanedBooksByBook', props.book.id], () =>
@@ -58,7 +91,18 @@ const BookItem = (props) => {
         }
     }
 
+    //Filtering data to find if book is returned or not
     const loanedBook = data.find( item => !item.returnedDate);
+
+    //Checking if book is checked out, available or onhold and displaying the correct button
+    let status;
+    if(props.book.onHold) {
+        status = <button className="primary-button small">On Hold</button>
+    } else if(loanedBook) {
+        status = <button className="primary-button small" onClick={requestHoldHandler}>Request Hold</button> 
+    } else if(!loanedBook) {
+        status = <button className="primary-button small" onClick={checkoutBookHandler}>Check Out</button>
+    }
 
     return (
         <div className=" mt-50">
@@ -77,7 +121,7 @@ const BookItem = (props) => {
                 </div>
                 {mutation.isLoading ? ('checking out book...') : (
                 <div className="flex align-center">
-                    {loanedBook ? <button className="primary-button small">Request Hold</button> : <button className="primary-button small" onClick={checkoutBookHandler}>Check Out</button>}
+                    {status}
                     <button className="ml-20 secondary-button small" onClick={descriptionHandler}>{description}</button>
                 </div>
                 )}

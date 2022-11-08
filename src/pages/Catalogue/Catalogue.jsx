@@ -4,20 +4,30 @@ import BookItem from "./BookItem";
 import arrow from '../../assets/images/arrow.png';
 import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
+import { useEffect } from "react";
 
 const Catalogue = () => {
-    const [books, setBooks] = useState(data);
+    const [books, setBooks] = useState([]);
 
     const { isLoading, error, data } = useQuery(['books'], () =>
     axios.get('http://localhost:3001/books').then(res =>
-      res.data
+      { console.log(res);
+        return res.data}
     )
     )
+
+    useEffect(() => {
+        if(data) {
+            setBooks(data);
+        }
+
+    },[data]);
 
     if (isLoading) return 'Loading...'
 
     if (error) return 'An error has occurred: ' + error.message
 
+    // Code for search bar
     const searchData = (pattern) => {
         if (!pattern) {
             setBooks(books);

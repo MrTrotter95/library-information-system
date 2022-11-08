@@ -1,8 +1,12 @@
 import React from "react";
-import {  useMutation } from '@tanstack/react-query';
+import {  useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from "axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 const CheckedOutItem = (props) => {
+    const queryClient = useQueryClient()
+    const { user } = useAuthContext()
+
     //getting todays date
     const date = new Date();
     let day = date.getDate().toString(); 
@@ -25,9 +29,14 @@ const CheckedOutItem = (props) => {
             })
     }
 
-    const mutation = useMutation(returnBook => {
-        return axios.put('http://localhost:3001/loanedBooks/'+ props.book.id, returnBook)
-    })
+    const mutation = useMutation({
+        mutationFn: returnBook => {
+            return axios.put('http://localhost:3001/loanedBooks/'+ props.book.id, returnBook)
+        },
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ['viewUserLoanedBooks', user.id] })
+        },
+      })
 
     return(
         <tr className="t-row">
