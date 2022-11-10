@@ -5,16 +5,20 @@ import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 
 const LoanedBooks = () => {
+    //Querying the database to get all loaned books, books, and users.
     const { isLoading, error, data } = useQuery(['viewLoanedBooks'], () =>
     axios.get('http://localhost:3001/loanedBooks?_expand=user&_expand=book').then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
+    //Filtering the response object to find all books that are still checked out.
     const bookOnLoan = data.filter( item => !item.returnedDate);
 
     return (

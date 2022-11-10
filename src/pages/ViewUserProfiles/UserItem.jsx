@@ -4,14 +4,17 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const UserItem = (props) => {
+    //querying the database to get the loaned books that match the user ID
     const { isLoading, error, data } = useQuery(['viewCountOfLoanedBooksByUser', props.user.id], () =>
     axios.get(`http://localhost:3001/loanedBooks?userId=${props.user.id}`).then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
 

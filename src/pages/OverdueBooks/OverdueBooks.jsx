@@ -5,14 +5,17 @@ import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 
 const OverdueBooks = () => {
+    //Querying the database to get all loaned books, books, and users
     const { isLoading, error, data } = useQuery(['viewOverdueBooks'], () =>
     axios.get('http://localhost:3001/loanedBooks?_expand=user&_expand=book').then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
     //getting todays date
@@ -22,9 +25,10 @@ const OverdueBooks = () => {
     let month = m.toString();
     let year = date.getFullYear().toString();
 
-    //contacting the date above to match the date format in the database
+    //concacting the date above to match the date format in the database
     let currentDate = year.concat("-", month, "-", day);
 
+    //Filtering the information to find overdue books
     const bookOverdue = data.filter( item => !item.returnedDate);
     const overdueItems = bookOverdue.filter (item => new Date(item.dueDate) <  new Date(currentDate));
 

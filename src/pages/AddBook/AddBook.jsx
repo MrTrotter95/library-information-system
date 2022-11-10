@@ -5,10 +5,12 @@ import {  useMutation } from '@tanstack/react-query';
 import axios from "axios";
 
 const AddBook = () => {
+    //State variables and setting methods
     const [author, setAuthor] = useState();
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
 
+    //Onchange functions attached to input fields that save users input to the state varaibles above
     const authorChangeHandler = (event) => {
         setAuthor(event.target.value);
     }
@@ -21,9 +23,8 @@ const AddBook = () => {
         setDescription(event.target.value);
     }
 
+    //OnSubmit function that creates a book object using the state variables
     const addBookHandler = () => {
-        console.log(author, title, description);
-
         mutation.mutate(
             {
                 bookTitle: title, 
@@ -32,12 +33,14 @@ const AddBook = () => {
             })
     }
 
+    //Mutation that posts the object above to the database.
     const mutation = useMutation(newBook => {
         return axios.post('http://localhost:3001/books', newBook)
       })
 
     return (
         <>
+        {/*If posting is success user will see the AddBook Success Prompt. */}
         {mutation.isSuccess ? <AddBookSuccess/> :
         <div className="container">
             <h1 className="h1 red fw-700 text-left mb-0">Add Book</h1>

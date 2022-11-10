@@ -7,11 +7,15 @@ import { useState } from "react";
 import {  useMutation } from '@tanstack/react-query';
 
 const EditBook = () => {
+    //State variables and setting methods
     const [author, setAuthor] = useState();
     const [bookTitle, setBookTitle] = useState();
     const [description, setDescription] = useState();
+
+    //Grabing the book ID from the route.
     let {bookId} = useParams();
 
+    //OnSubmit function that creates a book object
     const editBookHandler = (event) => {
         mutation.mutate(
             {
@@ -23,21 +27,26 @@ const EditBook = () => {
         event.preventDefault();
     }
 
+    //Mutation that patches/updated the above object in the database.
     const mutation = useMutation(editBook => {
         return axios.patch('http://localhost:3001/books/'+ bookId, editBook)
       })
 
 
+    //Querying the database to get the books by current ID.
     const { isLoading, error, data } = useQuery(['editBookByBook'], () =>
     axios.get(`http://localhost:3001/books/${bookId}`).then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
+    //Onchange functions attached to input fields that save users input to the state varaibles
     const authorChangeHandler = (event) => {
         setAuthor(event.target.value);
     }

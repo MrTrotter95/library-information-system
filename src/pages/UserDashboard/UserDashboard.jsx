@@ -9,25 +9,30 @@ import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
 
 const UserDashboard = () => {
+    //State variables and setting methods
     const [checkedOut, setCheckedOut] = useState(false);
     const [checkedOutBtn, setCheckedOutBtn] = useState('View Books');
-
     const [overdueBooks, setOverDueBooks] = useState(false);
     const [overdueBookBtn, setoverdueBookBtn] = useState('View Books');
 
 
 
+    //Grabbing logged in user details
     const { user } = useAuthContext()
 
+    //Querying the database to get the loaned books by user ID
     const { isLoading, error, data } = useQuery(['viewUserLoanedBooks', user.id], () =>
     axios.get(`http://localhost:3001/loanedBooks?userId=${user.id}&_expand=user&_expand=book`).then(res =>
       res.data
     ))
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
+    //OnClick functions that allows the user to view the checked out or overdue books 
     const viewCheckedBooksHandler = () => {
         if(checkedOut == true) {
             setCheckedOut(false);
@@ -47,8 +52,6 @@ const UserDashboard = () => {
             setoverdueBookBtn('Hide');
         }
     }
-
-
 
     // To display currently checked out books for the specific user
     const userCheckedOutItem = data.filter( item => !item.returnedDate);

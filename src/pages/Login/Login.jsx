@@ -5,12 +5,15 @@ import { useAuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const Login = () => {
+    //State variables and setting methods
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
+    //Grabbing the sign in authenticator to let the user login
     const { user, signIn } = useAuthContext();
     const navigate = useNavigate();
 
+    //Onchange functions attached to input fields that save users input to the state varaibles above
     const emailHandler = (event) => {
         setEmail(event.target.value);
     }
@@ -19,6 +22,9 @@ const Login = () => {
         setPassword(event.target.value);
     }
 
+    //OnSubmit function that Queries the database and checks if the user input
+    //matches the details on the database.
+    //If success the user will be redirected to the appropriate dashboard.
     const signInHandler = (event) => {
         event.preventDefault()
         axios.get(`http://localhost:3001/users?emailAddress=${email}&password=${password}`).then(res =>

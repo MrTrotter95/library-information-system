@@ -7,8 +7,10 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const Catalogue = () => {
+    //State variables and setting methods
     const [books, setBooks] = useState([]);
 
+    //Querying the database to get all the books
     const { isLoading, error, data } = useQuery(['books'], () =>
     axios.get('http://localhost:3001/books').then(res =>
       { console.log(res);
@@ -16,6 +18,7 @@ const Catalogue = () => {
     )
     )
 
+    //Hook to return updated books and update the view once changes are made.
     useEffect(() => {
         if(data) {
             setBooks(data);
@@ -23,11 +26,13 @@ const Catalogue = () => {
 
     },[data]);
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
-    // Code for search bar
+    //Code for search bar
     const searchData = (pattern) => {
         if (!pattern) {
             setBooks(books);

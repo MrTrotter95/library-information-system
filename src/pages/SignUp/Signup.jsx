@@ -7,12 +7,14 @@ import RegistrationFailed from "./RegistrationFailed";
 import { useAuth } from "../../hooks/Auth";
 
 const Signup = () => {
+    //State variables and setting methods
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
     const [dob, setDob] = useState();
     const [password, setPassword] = useState();
 
+    //Onchange functions attached to input fields that save users input to the state varaibles above
     const onChangeFName = (event) => {
         setFirstName(event.target.value);
     }
@@ -33,6 +35,7 @@ const Signup = () => {
         setPassword(event.target.value);
     }
 
+    //OnSubmit function that creates an object ready for sending to the database
     const addAccountHandler = (event) => {
             mutation.mutate(
                 {
@@ -46,15 +49,13 @@ const Signup = () => {
                 event.preventDefault();
     }
 
+    //Mutation function that posts the new user object to the database
     const mutation = useMutation(newUser => {
         axios.post('http://localhost:3001/users', newUser)
         axios.get(`http://localhost:3001/users?emailAddress=${email}&password=${password}`).then(res =>
             {if(res.data.length === 1) {
                 useAuth.signIn(res.data[0])
-                //redirect to dashboard
-            }} // else user name incorrect etc..
-        //get request to get current user.
-        //sign in user.
+            }}
     )})
 
     return (

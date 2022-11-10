@@ -44,12 +44,57 @@
       "password": "pass123",
       "emailAddress": "jane@library.com",
       "dateOfBirth": "1995-03-25"
+    },
+    {
+      "id": 6,
+      "isAdmin": false,
+      "firstName": "Max",
+      "lastName": "Verstappen",
+      "password": "pass123",
+      "emailAddress": "max@library.com",
+      "dateOfBirth": "1995-03-25"
+    },
+    {
+      "id": 7,
+      "isAdmin": false,
+      "firstName": "Lewis",
+      "lastName": "Hamilton",
+      "password": "pass123",
+      "emailAddress": "Lewis@library.com",
+      "dateOfBirth": "1995-03-25"
+    },
+    {
+      "id": 8,
+      "isAdmin": false,
+      "firstName": "Sergio",
+      "lastName": "Perez",
+      "password": "pass123",
+      "emailAddress": "Sergio@library.com",
+      "dateOfBirth": "1995-03-25"
+    },
+    {
+      "id": 9,
+      "isAdmin": false,
+      "firstName": "Fernado",
+      "lastName": "Alonzo",
+      "password": "pass123",
+      "emailAddress": "Fernado@library.com",
+      "dateOfBirth": "1995-03-25"
+    },
+    {
+      "id": 10,
+      "isAdmin": false,
+      "firstName": "Guenther",
+      "lastName": "Steiner",
+      "password": "pass123",
+      "emailAddress": "Guenther@library.com",
+      "dateOfBirth": "1995-03-25"
     }
   ],
   "books": [
     {
       "id": 1,
-      "onHold": 3,
+      "onHold": 0,
       "bookTitle": "The lord of the rings",
       "author": "J.R.R Tolkien",
       "description": "A book about an evil dude and a ring"
@@ -63,7 +108,7 @@
     },
     {
       "id": 3,
-      "onHold": 0,
+      "onHold": 3,
       "bookTitle": "A court of frost and starlight",
       "author": "Sarah J. Maas",
       "description": "Feyre's first Winter Solstice as High Ladt is drawing near. With it will come a hard-earned read from the work she, RHys and their friends have done to rebuilt the NIght Court and the castly changed world beyond."
@@ -200,185 +245,329 @@
       "id": 1,
       "bookId": 1,
       "userId": 3,
-      "checkedOut": "2022-08-25",
-      "dueDate": "2022-09-25",
-      "returnedDate": "2022-08-22"
+      "checkedOut": "2022-07-13",
+      "dueDate": "2022-07-13",
+      "returnedDate": "2022-08-14"
     },
     {
       "id": 2,
       "bookId": 2,
       "userId": 4,
-      "checkedOut": "2022-07-24",
-      "dueDate": "2022-08-24",
-      "returnedDate": "2022-07-22"
+      "checkedOut": "2022-07-14",
+      "dueDate": "2022-08-14",
+      "returnedDate": "2022-08-14"
     },
     {
       "id": 3,
       "bookId": 3,
       "userId": 5,
-      "checkedOut": "2022-07-13",
-      "dueDate": "2022-08-13",
-      "returnedDate": "2022-08-10"
+      "checkedOut": "2022-07-15",
+      "dueDate": "2022-08-15",
+      "returnedDate": "2022-08-15"
     },
     {
       "id": 4,
       "bookId": 4,
-      "userId": 3,
-      "checkedOut": "2022-07-07",
-      "dueDate": "2022-08-07",
-      "returnedDate": "2022-08-10"
+      "userId": 6,
+      "checkedOut": "2022-07-16",
+      "dueDate": "2022-08-16",
+      "returnedDate": "2022-08-16"
     },
     {
       "id": 5,
       "bookId": 5,
-      "userId": 4,
-      "checkedOut": "2022-07-14",
-      "dueDate": "2022-08-14",
-      "returnedDate": "2022-08-12"
+      "userId": 7,
+      "checkedOut": "2022-07-17",
+      "dueDate": "2022-08-17",
+      "returnedDate": "2022-08-17"
     },
     {
       "id": 6,
       "bookId": 6,
-      "userId": 5,
-      "checkedOut": "2022-07-16",
-      "dueDate": "2022-07-16",
-      "returnedDate": "2022-08-14"
+      "userId": 8,
+      "checkedOut": "2022-07-18",
+      "dueDate": "2022-08-18",
+      "returnedDate": "2022-08-18"
     },
     {
       "id": 7,
       "bookId": 7,
-      "userId": 3,
-      "checkedOut": "2022-07-17",
-      "dueDate": "2022-08-17",
-      "returnedDate": "2022-08-15"
+      "userId": 9,
+      "checkedOut": "2022-07-19",
+      "dueDate": "2022-08-19",
+      "returnedDate": "2022-08-19"
     },
     {
       "id": 8,
       "bookId": 8,
-      "userId": 4,
-      "checkedOut": "2022-07-19",
-      "dueDate": "2022-08-19",
-      "returnedDate": "2022-08-17"
+      "userId": 10,
+      "checkedOut": "2022-07-20",
+      "dueDate": "2022-08-20",
+      "returnedDate": "2022-08-20"
     },
     {
       "id": 9,
       "bookId": 9,
-      "userId": 5,
+      "userId": 3,
       "checkedOut": "2022-07-21",
       "dueDate": "2022-08-21",
-      "returnedDate": "2022-08-18"
+      "returnedDate": "2022-08-21"
     },
     {
       "id": 10,
       "bookId": 10,
-      "userId": 3,
-      "checkedOut": "2022-07-23",
-      "dueDate": "2022-08-23",
-      "returnedDate": "2022-08-20"
+      "userId": 4,
+      "checkedOut": "2022-07-22",
+      "dueDate": "2022-08-22",
+      "returnedDate": "2022-08-22"
     },
     {
       "id": 11,
       "bookId": 11,
-      "userId": 4,
+      "userId": 5,
       "checkedOut": "2022-07-23",
       "dueDate": "2022-08-23",
-      "returnedDate": "2022-08-20"
+      "returnedDate": "2022-08-23"
     },
     {
       "id": 12,
       "bookId": 12,
-      "userId": 5,
-      "checkedOut": "2022-09-24",
-      "dueDate": "2022-10-24",
-      "returnedDate": ""
+      "userId": 6,
+      "checkedOut": "2022-07-24",
+      "dueDate": "2022-08-24",
+      "returnedDate": "2022-08-24"
     },
     {
+      "id": 13,
       "bookId": 13,
-      "userId": 3,
-      "checkedOut": "2022-09-16",
-      "dueDate": "2022-10-28",
-      "returnedDate": "",
-      "id": 13
+      "userId": 7,
+      "checkedOut": "2022-07-25",
+      "dueDate": "2022-08-25",
+      "returnedDate": "2022-08-25"
     },
     {
+      "id": 14,
       "bookId": 14,
-      "userId": 4,
-      "checkedOut": "2022-09-27",
-      "dueDate": "2022-10-29",
-      "returnedDate": "",
-      "id": 14
+      "userId": 8,
+      "checkedOut": "2022-07-26",
+      "dueDate": "2022-08-26",
+      "returnedDate": "2022-08-26"
     },
     {
       "id": 15,
       "bookId": 15,
-      "userId": 5,
-      "checkedOut": "2022-10-10",
-      "dueDate": "2022-11-10",
-      "returnedDate": ""
+      "userId": 9,
+      "checkedOut": "2022-07-27",
+      "dueDate": "2022-08-27",
+      "returnedDate": "2022-08-27"
     },
     {
+      "id": 16,
       "bookId": 16,
-      "userId": 3,
-      "checkedOut": "2022-10-10",
-      "dueDate": "2022-11-10",
-      "returnedDate": "",
-      "id": 16
+      "userId": 10,
+      "checkedOut": "2022-07-28",
+      "dueDate": "2022-08-28",
+      "returnedDate": "2022-08-28"
     },
     {
+      "id": 17,
       "bookId": 17,
-      "userId": 4,
-      "checkedOut": "2022-10-11",
-      "dueDate": "2022-11-11",
-      "returnedDate": "",
-      "id": 17
+      "userId": 3,
+      "checkedOut": "2022-08-01",
+      "dueDate": "2022-09-01",
+      "returnedDate": "2022-09-01"
     },
     {
       "id": 18,
       "bookId": 18,
-      "userId": 5,
-      "checkedOut": "2022-10-12",
-      "dueDate": "2022-11-12",
-      "returnedDate": ""
-    },
-    {
-      "bookId": 19,
-      "userId": 3,
-      "checkedOut": "2022-10-12",
-      "dueDate": "2022-11-13",
-      "returnedDate": "",
-      "id": 19
-    },
-    {
-      "bookId": 20,
       "userId": 4,
-      "checkedOut": "2022-10-13",
-      "dueDate": "2022-11-13",
-      "returnedDate": "",
-      "id": 20
+      "checkedOut": "2022-08-02",
+      "dueDate": "2022-09-02",
+      "returnedDate": "2022-09-02"
+    },
+    {
+      "id": 19,
+      "bookId": 19,
+      "userId": 5,
+      "checkedOut": "2022-08-03",
+      "dueDate": "2022-09-03",
+      "returnedDate": "2022-09-03"
+    },
+    {
+      "id": 20,
+      "bookId": 20,
+      "userId": 6,
+      "checkedOut": "2022-08-04",
+      "dueDate": "2022-09-04",
+      "returnedDate": "2022-09-04"
     },
     {
       "id": 21,
       "bookId": 21,
+      "userId": 7,
+      "checkedOut": "2022-08-05",
+      "dueDate": "2022-09-05",
+      "returnedDate": "2022-09-05"
+    },
+    {
+      "id": 22,
+      "bookId": 1,
+      "userId": 8,
+      "checkedOut": "2022-08-06",
+      "dueDate": "2022-09-06",
+      "returnedDate": "2022-09-06"
+    },
+    {
+      "id": 23,
+      "bookId": 2,
+      "userId": 9,
+      "checkedOut": "2022-08-07",
+      "dueDate": "2022-09-07",
+      "returnedDate": "2022-09-07"
+    },
+    {
+      "id": 24,
+      "bookId": 3,
+      "userId": 10,
+      "checkedOut": "2022-08-08",
+      "dueDate": "2022-09-08",
+      "returnedDate": "2022-09-08"
+    },
+    {
+      "id": 25,
+      "bookId": 4,
+      "userId": 3,
+      "checkedOut": "2022-08-09",
+      "dueDate": "2022-09-09",
+      "returnedDate": "2022-09-09"
+    },
+    {
+      "id": 26,
+      "bookId": 5,
+      "userId": 4,
+      "checkedOut": "2022-08-10",
+      "dueDate": "2022-09-10",
+      "returnedDate": "2022-09-10"
+    },
+    {
+      "id": 27,
+      "bookId": 6,
       "userId": 5,
-      "checkedOut": "2022-10-14",
-      "dueDate": "2022-11-14",
+      "checkedOut": "2022-08-11",
+      "dueDate": "2022-09-11",
+      "returnedDate": "2022-09-11"
+    },
+    {
+      "id": 28,
+      "bookId": 7,
+      "userId": 6,
+      "checkedOut": "2022-08-12",
+      "dueDate": "2022-09-12",
+      "returnedDate": "2022-09-12"
+    },
+    {
+      "id": 29,
+      "bookId": 8,
+      "userId": 7,
+      "checkedOut": "2022-08-13",
+      "dueDate": "2022-09-13",
+      "returnedDate": "2022-09-13"
+    },
+    {
+      "id": 30,
+      "bookId": 9,
+      "userId": 8,
+      "checkedOut": "2022-08-14",
+      "dueDate": "2022-09-14",
+      "returnedDate": "2022-09-14"
+    },
+    {
+      "id": 31,
+      "bookId": 10,
+      "userId": 9,
+      "checkedOut": "2022-08-15",
+      "dueDate": "2022-09-15",
+      "returnedDate": "2022-09-15"
+    },
+    {
+      "id": 32,
+      "bookId": 11,
+      "userId": 10,
+      "checkedOut": "2022-08-16",
+      "dueDate": "2022-09-16",
+      "returnedDate": "2022-09-16"
+    },
+    {
+      "id": 33,
+      "bookId": 1,
+      "userId": 3,
+      "checkedOut": "2022-10-01",
+      "dueDate": "2022-11-01",
       "returnedDate": ""
     },
     {
-      "bookId": 1,
-      "userId": 3,
-      "checkedOut": "2022-11-3",
-      "dueDate": "2022-12-3",
-      "returnedDate": "",
-      "id": 22
+      "id": 34,
+      "bookId": 3,
+      "userId": 4,
+      "checkedOut": "2022-10-02",
+      "dueDate": "2022-11-02",
+      "returnedDate": "2022-11-10"
     },
     {
-      "bookId": 2,
+      "id": 35,
+      "bookId": 6,
+      "userId": 5,
+      "checkedOut": "2022-10-03",
+      "dueDate": "2022-11-03",
+      "returnedDate": ""
+    },
+    {
+      "id": 36,
+      "bookId": 12,
       "userId": 3,
-      "checkedOut": "2022-11-6",
-      "dueDate": "2022-12-6",
-      "returnedDate": "",
-      "id": 23
+      "checkedOut": "2022-10-09",
+      "dueDate": "2022-11-09",
+      "returnedDate": ""
+    },
+    {
+      "id": 37,
+      "bookId": 15,
+      "userId": 4,
+      "checkedOut": "2022-10-02",
+      "dueDate": "2022-11-02",
+      "returnedDate": ""
+    },
+    {
+      "id": 38,
+      "bookId": 19,
+      "userId": 5,
+      "checkedOut": "2022-10-03",
+      "dueDate": "2022-11-03",
+      "returnedDate": ""
+    },
+    {
+      "id": 39,
+      "bookId": 21,
+      "userId": 3,
+      "checkedOut": "2022-11-10",
+      "dueDate": "2022-12-10",
+      "returnedDate": ""
+    },
+    {
+      "id": 40,
+      "bookId": 11,
+      "userId": 4,
+      "checkedOut": "2022-11-10",
+      "dueDate": "2022-12-10",
+      "returnedDate": ""
+    },
+    {
+      "id": 41,
+      "bookId": 17,
+      "userId": 5,
+      "checkedOut": "2022-11-10",
+      "dueDate": "2022-12-10",
+      "returnedDate": ""
     }
   ]
 }

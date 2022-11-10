@@ -5,16 +5,17 @@ import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 import { useState } from "react";
 import {  useMutation } from '@tanstack/react-query';
-import EditSuccess from "./EditSuccess";
-import ConfirmationFailed from "./ConfirmationFailed";
-import SendTempPass from "./SendTempPass";
 
 const EditProfile = () => {
+    //State variables and setting methods
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
+
+    //Grabing the book ID from the route.
     let {userId} = useParams();
 
+    //OnSubmit function that creates a book object using the state variables above
     const editProfileHandler = (event) => {
         mutation.mutate(
             {
@@ -26,20 +27,25 @@ const EditProfile = () => {
         event.preventDefault()
     }
     
+    //Mutation that patches/updates the object above to the database
     const mutation = useMutation(editProfile => {
         return axios.patch('http://localhost:3001/users/'+ userId, editProfile)
     })
 
+    //Querying the database getting the user by their userId.
     const { isLoading, error, data } = useQuery(['editProfileByUser', userId], () =>
     axios.get(`http://localhost:3001/users/${userId}`).then(res =>
     res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
+    //Onchange functions attached to input fields that save users input to the state varaibles above
     const firstNameChangeHandler = (event) => {
         setFirstName(event.target.value);
     }
@@ -52,7 +58,6 @@ const EditProfile = () => {
         setEmail(event.target.value);
     }
     
-
     return (
         <div className="container">
             <h1 className="h1 red fw-700 text-left mb-0">Edit Profile</h1>

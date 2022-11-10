@@ -14,9 +14,10 @@ const CheckedOutItem = (props) => {
     let month = m.toString();
     let year = date.getFullYear().toString();
 
-    //contacting the date above to match the date format in the database
+    //concacting the date above to match the date format in the database
     let currentDate = year.concat("-", month, "-", day);
 
+    //OnSubmit function that creates a object to return a book
     const returnBookHandler = () => {
         mutation.mutate(
             {
@@ -29,6 +30,7 @@ const CheckedOutItem = (props) => {
             })
     }
 
+    //Mutation that updates the database and places a returned date on the book.
     const mutation = useMutation({
         mutationFn: returnBook => {
             return axios.put('http://localhost:3001/loanedBooks/'+ props.book.id, returnBook)

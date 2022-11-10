@@ -4,14 +4,18 @@ import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
 
 const EditPassword = () => {
+    //State variables and setting methods
     const [password, setPassword] = useState();
+
+    //Grabing the current logged in user details
     const { user } = useAuthContext()
 
+    //Onchange function attached to input fields that save users input to the state varaibles above
     const passwordChangeHandler = (event) => {
         setPassword(event.target.value);
     }
 
-    //Allowing a user to change their password
+    //onSubmit function that creates a change password object
     const changePasswordHandler = (event) => {
         mutation.mutate(
             {
@@ -20,6 +24,7 @@ const EditPassword = () => {
         event.preventDefault();
     }
 
+    //Mutation the patches/updates the users password using the object above
     const mutation = useMutation(changePass => {
             return axios.patch('http://localhost:3001/users/'+ user.id, changePass)
         })

@@ -4,12 +4,15 @@ import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
 
 const PersonalInfo = () => {
+    //State variables and setting methods
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
 
+    //Grabing the current logged in user details
     const { user } = useAuthContext()
 
+    //Onchange functions attached to input fields that save users input to the state varaibles above
     const fNameChangeHandler = (event) => {
         setFirstName(event.target.value);
     }
@@ -22,7 +25,7 @@ const PersonalInfo = () => {
         setEmail(event.target.value);
     }
 
-    //Allowing a user to edit their personal informaion
+    //OnSubmit function that creates an object 
     const changeInformationHandler = (event) => {
         mutation.mutate(
             {
@@ -33,6 +36,7 @@ const PersonalInfo = () => {
         event.preventDefault();
     }
 
+    //Mutation that takes the object from above and updates the database
     const mutation = useMutation(changeInformation => {
             return axios.patch('http://localhost:3001/users/'+ user.id, changeInformation)
         })

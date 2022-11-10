@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import CardMedium from '../../components/Cards/CardMedium';
 import {  useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
 
 const BookItem = (props) => {
+    //State variables and setting methods
     const [description, setDescription] = useState("Description");
     const [showDescription, setShowDescription] = useState(false);
 
@@ -27,29 +28,31 @@ const BookItem = (props) => {
     let dueDateMonth = dueDateM.toString();
     let dueDate = year.concat("-", dueDateMonth, "-", day);
 
-    //Allowing a user the checkout a book
+    //OnSubmit function that creates a check out book object using the state variables
     const checkoutBookHandler = () => {
         mutation.mutate(
             {
                 bookId: props.book.id,
-                userId: user.id, // Need to update this once user accounts are logged in
+                userId: user.id,
                 checkedOut: currentDate,
                 dueDate: dueDate,
                 returnedDate: ""
             })
     }
 
+    //Mutation that posts the object above to the database
     const mutation = useMutation({
         mutationFn: checkBook => {
             return axios.post('http://localhost:3001/loanedBooks', checkBook)
         },
         onSuccess: () => {
+            //Once post is a success, this method updates the view in the ui.
             queryClient.invalidateQueries({ queryKey: ['books'] })
             queryClient.invalidateQueries({ queryKey: ['loanedBooksByBook']})
         },
     })
 
-    //Allowing a user to place a book on hold
+    //onSubmit function that creataes a requestHold object using the book and user properties
     const requestHoldHandler = () => {
         mutateHold.mutate(
             {
@@ -62,6 +65,8 @@ const BookItem = (props) => {
         )
     }
 
+    //Mutation the patches/updates the book places the users ID on the OnHold property
+    //To allow the application know the book is on hold.
     const mutateHold = useMutation({
         mutationFn: requestHold => {
             return axios.patch('http://localhost:3001/books/'+ props.book.id, requestHold)
@@ -72,14 +77,17 @@ const BookItem = (props) => {
         },
     })
 
+    //Querying the database to get the loaned books
     const { isLoading, error, data } = useQuery(['loanedBooksByBook', props.book.id], () =>
     axios.get(`http://localhost:3001/loanedBooks?bookId=${props.book.id}`).then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
     //Function to allow the user to see the description of the book.

@@ -6,20 +6,26 @@ import { useAuthContext } from "../../context/AuthContext";
 import RequestHoldItem from './RequestHoldItem';
 
 const BooksOnHold = () => {
+    //State variables and setting methods
     const [onHoldBooks, setOnHoldBooks] = useState(false);
     const [onHoldBtn, setOnHoldBtn] = useState('View Books');
 
+    //Grabing the user details
     const { user } = useAuthContext()
 
+    //Querying the database to find the books that are on hold by user ID
     const { isLoading, error, data } = useQuery(['viewUserOnHoldBooks', user.id], () =>
     axios.get(`http://localhost:3001/books?onHold=${user.id}&_embed=loanedBooks`).then(res =>
       res.data
     ))
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
+    //OnClick function will show the books on hold component.
     const viewOnHoldHandler = () => {
         if(onHoldBooks == true) {
             setOnHoldBooks(false);
@@ -55,7 +61,7 @@ const BooksOnHold = () => {
                         </tr>
                     </thead>
                     <tbody className="t-body">
-                        {test.map( book => <RequestHoldItem book={book}/> )}
+                        {data.map( book => <RequestHoldItem book={book}/> )}
                     </tbody>
                 </table>
                 }

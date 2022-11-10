@@ -6,21 +6,24 @@ import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 
 const AdminBookItem = (props) => {
+    //State variables and setting methods
     const [description, setDescription] = useState("Description");
     const [showDescription, setShowDescription] = useState(false);
 
-
-
+    //Querying the database to get the loaned books
     const { isLoading, error, data } = useQuery(['adminLoanedBooksByBook', props.book.id], () =>
     axios.get(`http://localhost:3001/loanedBooks?bookId=${props.book.id}`).then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
+    //OnClick function that allows the user to see or hide the book desscription
     const descriptionHandler = () => {
         if(showDescription == true) {
             setShowDescription(false);
@@ -30,9 +33,11 @@ const AdminBookItem = (props) => {
 
     }
 
+    //Filtering the query response object to see if the book has been returned or not
+    //This will be used to change a button to say either "checked out" if the returned date is null
     const loanedBook = data.find( item => !item.returnedDate);
 
-    //Deleting a book by it's ID
+    //OnClick function to delete
     const deleteBookHandler = () => {
         return axios.delete('http://localhost:3001/books/'+ props.book.id)
     }
@@ -57,6 +62,7 @@ const AdminBookItem = (props) => {
                     <p className="p1 mt-0 mb-0 ">{loanedBook.dueDate}</p></>}
                 </div>
                 <div className="flex align-center">
+                    {/*If an admin clicks edit book. They will be take to the edit book page for the specific book. */}
                     <Link to={`/EditBook/${props.book.id}`}>
                         <button className="primary-button small">Edit Book</button>
                     </Link>

@@ -23,6 +23,7 @@ const UserOverdueItem = (props) => {
     //Checking how many days the book is overdue
     const daysOverdue = parseInt((currDate - dueDate) / (1000 * 60 * 60 * 24))
 
+    //OnSubmit function that creates a object to allow a user return the overdue book
     const returnOverdueBookHandler = () => {
         mutation.mutate(
             {
@@ -35,6 +36,7 @@ const UserOverdueItem = (props) => {
             })
     }
 
+    //Mutation that updates the database to allow the user to return the book
     const mutation = useMutation({
         mutationFn: returnBook => {
         return axios.put('http://localhost:3001/loanedBooks/'+ props.book.id, returnBook)

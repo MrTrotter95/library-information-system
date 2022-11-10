@@ -6,10 +6,12 @@ import LoanHistory from "./LoanHistory";
 import EditPassword from './EditPassword';
 
 const Profile = () => {
+    //State variables and setting methods
     const [showPersonalInfo, setShowPersonalInfo] = useState(true);
     const [showLoanHistory, setShowLoanHistory] = useState(false);
     const [showEditPass, setShowEditPass] = useState(false);
 
+    //OnClick functions that allow the user to display personal info, loan history, or password views.
     const showPersonalInfoHandler = () => {
         setShowPersonalInfo(true);
         setShowLoanHistory(false);

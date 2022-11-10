@@ -5,6 +5,7 @@ import userImage from '../../assets/images/userImage.png';
 import { useAuthContext } from "../../context/AuthContext";
 
 const AdminDashboard = () => {
+    //This allows us to attain the current logged in users details.
     const { user } = useAuthContext()
 
     return (

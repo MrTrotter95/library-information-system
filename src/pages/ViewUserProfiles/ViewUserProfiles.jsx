@@ -5,14 +5,17 @@ import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
 
 const ViewUserProfiles = () => {
+    //Querying the database the get all the users
     const { isLoading, error, data } = useQuery(['users'], () =>
     axios.get('http://localhost:3001/users').then(res =>
       res.data
     )
     )
 
+    //While query is retreiving information user with see Loading text.
     if (isLoading) return 'Loading...'
 
+    //If Query is error user will see the appropriate error message.
     if (error) return 'An error has occurred: ' + error.message
 
     return (
