@@ -40,12 +40,12 @@ members of the library will be able to log into a standard user account where th
 * Sign in / Sign out
 
 ## Technology Stack
-React.JS
-Json-server
-Tanstack react query
-Axios
-Fuse.js
-React Router
+- React.JS
+- Json-server
+- Tanstack react query
+- Axios
+- Fuse.js
+- React Router
 
 
 ## Available Scripts
