@@ -1,12 +1,58 @@
-# Getting Started with Create React App
+# Library Management System
+
+Yoobee Colleges Integrated Studio II Assesment 2
+
+Team assignment completed by Alistair Trotter & Jordan Wall
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Project Description
+The project is a library information system designed to manage all the in-house functions of the client’s library. This system will be an online web application and its primary purpose is to allow the library's customers the ability to undertake the activity of browsing books at the library, checking them out, and returning them in an online space. This tool will improve the efficiency of library employees and members. 
+
+
+### Administrator functionality
+Administrators will be able to log into a administrative account where they will have the functionality to:
+* Add New books to the catalogue
+* Edit & remove books from the catalogue
+* Edit & remove user accounts from the system
+* View all overdue books
+* View all loaned items
+* View entire loan history 
+* View all users
+* Sign in / Sign out
+
+### User Functionality
+
+members of the library will be able to log into a standard user account where they will have the functionality to:
+* View the libraries entire catalogue
+* View the books that are currently checked out, on hold, or available
+* Check out available books from the catalogue
+* Request holds on books that are checked out
+* Check out books they placed on hold once they are returned
+* Return their checked out and overdue books
+* View their profile
+* View their entire loan history
+* Edit their basic information
+* View their books checked out
+* View their books that are overdue
+* View their books that are on hold
+* Sign in / Sign out
+
+## Technology Stack
+React.JS
+Json-server
+Tanstack react query
+Axios
+Fuse.js
+React Router
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +60,108 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Folder Structure:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Library-Information-System
+  * Data
+    * db.json
+  * node_modules
+  * public
+    * index.html
+    * manifest.json
+    * robots.txt
+  * src
+    * assets
+      * images
+        * arrow.png
+        * bin.png
+        * crossPrompt.png
+        * emailPrompt.png
+        * holdPrompt.png
+        * profile_bg.png
+        * tickPrompt.png
+        userImage.png
+    * components
+      * Cards
+        * CardLarge.jsx
+        * CardMedium.jsx
+        * CardPopup.jsx
+        * CardSmall.jsx
+        * CardStyles.css
+      * Footer
+        * Footer.css
+        * Footer.jsx
+      * Navbar
+        * NavBar.css
+        * NavBar.jsx
+    * context
+      * AuthContext.js
+    * hooks
+      * Auth.js
+      * UseLocalStorage.js
+    * pages
+      * AddBook
+        * AddBook.jsx
+        * AddBookSuccess.jsx
+      * Admin Catalogue
+        * AdminBookItem.jsx
+        * AdminCatalogue.jsx
+      * AdminDashboard
+        * AdminDashboard.css
+        * AdminDashboard.jsx
+      * Catalogue
+        * BookItem.jsx
+        * BookOnHold.jsx
+        * Catalogue.jsx
+        * LoanFailed.jsx
+        * LoanSuccess.jsx
+      * EditBook
+        * BookEditSuccess.jsx
+        * EditBook.jsx
+      * EditProfile
+        * ConfirmationFailed.jsx
+        * EditProfile.jsx
+        * EditSuccess.jsx
+        * SendTempPass.jsx
+      * LoanedBooks
+        * LoanedBooks.jsx
+        * LoanedItem.jsx
+      * LoanHistory
+        * LoanHistory.jsx
+        * LoanHistoryItem.jsx
+      * Login
+        * Login.jsx
+      * OverdueBooks
+        * OverdueBooks.jsx
+        * OverdueItem.jsx
+        * UserContacted.jsx
+      * Profile
+        * ConfirmationFailed.jsx
+        * EditPassword.jsx
+        * EditSuccess.jsx
+        * LoanHistory.jsx
+        * LoanHistoryItem.jsx
+        * PersonalInfo.jsx
+        * Profile.jsx
+      * SignUp
+        * Signup.jsx
+      * UserDashboard
+        * BooksOnHold.jsx
+        * CheckedOutItem.jsx
+        * RequestHoldItem.jsx
+        * ReturnSuccess.jsx
+        * UserDashboard.jsx
+        * UserOverdueItem.jsx
+      * ViewUserProfiles
+        * UserItem.jsx
+        * ViewUserProfiles.jsx
+    * App.css
+    * App.js
+    * App.test.js
+    * index.css
+    * reportWebVitals.js
+    * setupTests.js
+  * .gitignore
+  * package-lock.json
+  * package.json
+  * README.md
